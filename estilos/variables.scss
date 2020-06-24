@@ -1,0 +1,27 @@
+@mixin textBox {
+  width: 100%;
+  height: 20px;
+  background: #fffafe;
+  border: 1px solid #e6bbe2;
+  box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+}
+
+@mixin ligthButton {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+
+@mixin ligthBar {
+  background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+}
+@mixin darkButton {
+  color: white;
+  background: #ee3efe;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+}
+
+@mixin darkBar {
+  background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+}

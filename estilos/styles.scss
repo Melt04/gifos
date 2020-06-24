@@ -1,0 +1,26 @@
+@import './variables.scss';
+@import './header.scss';
+@import './formBusqueda.scss';
+@import './sugerencias.scss';
+@import './tendencias.scss';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #110038;
+}
+.body-ligth {
+  background-color: white;
+}
+section {
+  padding: 0 3% 0 3%;
+}
+.title-bar {
+  @include ligthBar;
+  padding: 0;
+}
+.darkBar {
+  @include darkBar;
+}

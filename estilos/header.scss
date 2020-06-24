@@ -1,0 +1,53 @@
+//Css heades and Nav
+
+nav {
+  padding: 0 3% 0 3%;
+  margin: 1.5% 0 1.5% 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 18px;
+  span {
+    text-decoration: underline;
+  }
+  img {
+    height: 64px;
+    width: 102px;
+  }
+  .side-menu {
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .nav-boton {
+      @include ligthButton;
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 16px;
+      width: 100px;
+      height: 40px;
+      letter-spacing: 0;
+      line-height: 18px;
+      text-align: center;
+      padding: 2%;
+    }
+    .darkButton {
+      @include darkButton;
+    }
+
+    .nav-tema {
+      display: flex;
+      text-align: center;
+    }
+  }
+}
+.arrow-button {
+  @include ligthButton;
+  width: 20px;
+  img {
+    width: 10px;
+    height: 6px;
+  }
+}

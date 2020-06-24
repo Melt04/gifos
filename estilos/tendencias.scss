@@ -1,0 +1,18 @@
+.tendencias {
+  margin-top: 4%;
+  input {
+    @include textBox;
+  }
+  .tendencias-grid {
+    display: flex;
+
+    flex-direction: row;
+    div {
+      margin: 10px;
+      content: '';
+      background-color: black;
+      width: 280px;
+      height: 280px;
+    }
+  }
+}
