@@ -36,6 +36,9 @@ nav {
       line-height: 18px;
       text-align: center;
       padding: 2%;
+      a {
+        text-decoration: none;
+      }
       &:hover {
         outline-style: dotted;
         outline-width: 1px;

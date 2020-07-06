@@ -1,5 +1,6 @@
 let bLightTheme = document.querySelector('#lightTheme');
 let bDarkTheme = document.querySelector('#darkTheme');
+// Por defecto el theme empieza  en Light
 
 bLightTheme.classList.add('active');
 function changeTheme() {
@@ -23,10 +24,16 @@ function changeTheme() {
   gifosLabel.classList.toggle('dark-label');
   body.classList.toggle('body-dark');
   let arrowAtributte = arrowImage.getAttribute('src');
+
   //Cambiar entre las  dropdown
   if (arrowAtributte === './assets/dropdown.svg') {
     arrowImage.setAttribute('src', './assets/dropdownDark.svg');
   } else {
     arrowImage.setAttribute('src', './assets/dropdown.svg');
+  }
+  if (bDarkTheme.classList.contains('active')) {
+    localStorage.setItem('theme', 'dark');
+  } else {
+    localStorage.removeItem('theme');
   }
 }
