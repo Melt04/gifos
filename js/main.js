@@ -6,4 +6,4 @@ bDarkTheme.addEventListener('click', changeTheme);
 
 // Funcion para cargar los trendin GIF
 fetchTrendingGifs();
-searchGif();
+enabledSearch();

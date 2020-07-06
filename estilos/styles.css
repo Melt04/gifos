@@ -90,6 +90,9 @@ nav {
     display: block; }
 
 /** @format */
+.form {
+  background: #e6e6e6; }
+
 form {
   background: #e6e6e6;
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
@@ -129,6 +132,26 @@ form {
     letter-spacing: 0; }
   form .darkBar {
     background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%); }
+
+.autocomplete {
+  display: none;
+  width: 100%;
+  background: #e6e6e6;
+  padding: 0.4%;
+  box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff; }
+  .autocomplete button {
+    width: 90%;
+    height: 34px;
+    font-family: 'Chakra Petch', sans-serif;
+    text-align: left;
+    font-size: 16px;
+    margin: 0.4%;
+    padding: 0.4%;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 22px;
+    background: #f0f0f0;
+    border: 1px solid #808080; }
 
 /** @format */
 .sugerencias {
