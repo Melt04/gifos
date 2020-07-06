@@ -11,13 +11,13 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #110038;
+  background-color: #fff4fd;
 }
 button {
   outline: none;
 }
-.body-ligth {
-  background-color: white;
+.body-dark {
+  background-color: #110038;
 }
 section {
   padding: 0 3% 0 3%;
@@ -28,4 +28,7 @@ section {
 }
 .darkBar {
   @include darkBar;
+}
+input[type='text'] {
+  outline: none;
 }

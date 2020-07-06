@@ -1,23 +1,9 @@
-/* //Cambiar Theme
+// Agregar los events para cambiar los theme
 
-*/
-let boton = document.getElementById('themeButton');
-boton.addEventListener('click', b => {
-  let changeComponent = document.getElementsByClassName('change');
+// Event listener para los botones
+bLightTheme.addEventListener('click', changeTheme);
+bDarkTheme.addEventListener('click', changeTheme);
 
-  for (let i = 0; i < changeComponent.length; i++) {
-    if (changeComponent[i].nodeName == 'BUTTON') {
-      changeComponent[i].classList.toggle('darkButton');
-    } else {
-      changeComponent[i].classList.toggle('darkBar');
-    }
-  }
-  let arrowAtributte = arrowImage.getAttribute('src');
-
-  //Cambiar entre las  dropdown
-  if (arrowAtributte === './assets/dropdown.svg') {
-    arrowImage.setAttribute('src', './assets/dropdownDark.svg');
-  } else {
-    arrowImage.setAttribute('src', './assets/dropdown.svg');
-  }
-});
+// Funcion para cargar los trendin GIF
+fetchTrendingGifs();
+searchGif();

@@ -1,5 +1,8 @@
 /** @format */
 /** @format */
+header {
+  margin-bottom: 4%; }
+
 nav {
   padding: 0 3% 0 3%;
   margin: 1.5% 0 1.5% 0;
@@ -32,6 +35,10 @@ nav {
       line-height: 18px;
       text-align: center;
       padding: 2%; }
+      nav .side-menu .nav-boton:hover {
+        outline-style: dotted;
+        outline-width: 1px;
+        outline-offset: -5px; }
     nav .side-menu .darkButton {
       color: white;
       background: #ee3efe;
@@ -46,9 +53,41 @@ nav {
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
   width: 20px; }
+  .arrow-button:hover {
+    outline-style: dotted;
+    outline-width: 1px;
+    outline-offset: -5px; }
   .arrow-button img {
     width: 10px;
     height: 6px; }
+
+.dropdown-tema-content {
+  display: none;
+  width: 120px;
+  position: absolute;
+  flex-direction: column;
+  background-color: #e6e6e6; }
+  .dropdown-tema-content .dropdown-tema-button {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 16px;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 22px;
+    width: 100px;
+    margin: 5px auto; }
+  .dropdown-tema-content .active {
+    background: blue; }
+
+.dropdown-tema-button {
+  padding: 5px; }
+
+.dark-label {
+  color: white; }
+
+.dropdown-tema:hover .dropdown-tema-content {
+  display: block; }
+  .dropdown-tema:hover .dropdown-tema-content .dropdown-tema-button {
+    display: block; }
 
 /** @format */
 form {
@@ -110,6 +149,7 @@ form {
       width: 280px;
       height: 280px; }
 
+/** @format */
 .tendencias {
   margin-top: 4%; }
   .tendencias input {
@@ -120,8 +160,9 @@ form {
     box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d; }
   .tendencias .tendencias-grid {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row; }
-    .tendencias .tendencias-grid div {
+    .tendencias .tendencias-grid img {
       margin: 10px;
       content: '';
       background-color: black;
@@ -134,13 +175,13 @@ form {
   box-sizing: border-box; }
 
 body {
-  background-color: #110038; }
+  background-color: #fff4fd; }
 
 button {
   outline: none; }
 
-.body-ligth {
-  background-color: white; }
+.body-dark {
+  background-color: #110038; }
 
 section {
   padding: 0 3% 0 3%; }
@@ -151,5 +192,8 @@ section {
 
 .darkBar {
   background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%); }
+
+input[type='text'] {
+  outline: none; }
 
 /*# sourceMappingURL=styles.css.map */

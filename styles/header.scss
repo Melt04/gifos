@@ -1,7 +1,9 @@
 /** @format */
 
 //Css heades and Nav
-
+header {
+  margin-bottom: 4%;
+}
 nav {
   padding: 0 3% 0 3%;
   margin: 1.5% 0 1.5% 0;
@@ -34,6 +36,11 @@ nav {
       line-height: 18px;
       text-align: center;
       padding: 2%;
+      &:hover {
+        outline-style: dotted;
+        outline-width: 1px;
+        outline-offset: -5px;
+      }
     }
     .darkButton {
       @include darkButton;
@@ -48,8 +55,49 @@ nav {
 .arrow-button {
   @include ligthButton;
   width: 20px;
+  &:hover {
+    outline-style: dotted;
+    outline-width: 1px;
+    outline-offset: -5px;
+  }
   img {
     width: 10px;
     height: 6px;
+  }
+}
+.dropdown-tema-content {
+  display: none;
+  width: 120px;
+  position: absolute;
+  flex-direction: column;
+  background-color: #e6e6e6;
+
+  .dropdown-tema-button {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 16px;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 22px;
+    width: 100px;
+    margin: 5px auto;
+  }
+  .active {
+    background: blue;
+  }
+}
+.dropdown-tema-button {
+  padding: 5px;
+}
+.dark-label {
+  color: white;
+}
+.dropdown-tema {
+  &:hover {
+    .dropdown-tema-content {
+      display: block;
+      .dropdown-tema-button {
+        display: block;
+      }
+    }
   }
 }
