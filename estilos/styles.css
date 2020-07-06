@@ -1,3 +1,5 @@
+/** @format */
+/** @format */
 nav {
   padding: 0 3% 0 3%;
   margin: 1.5% 0 1.5% 0;
@@ -48,6 +50,7 @@ nav {
     width: 10px;
     height: 6px; }
 
+/** @format */
 form {
   background: #e6e6e6;
   box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
@@ -88,6 +91,7 @@ form {
   form .darkBar {
     background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%); }
 
+/** @format */
 .sugerencias {
   margin-top: 4%; }
   .sugerencias input {
@@ -131,6 +135,9 @@ form {
 
 body {
   background-color: #110038; }
+
+button {
+  outline: none; }
 
 .body-ligth {
   background-color: white; }

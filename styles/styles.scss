@@ -1,3 +1,5 @@
+/** @format */
+
 @import './variables.scss';
 @import './header.scss';
 @import './formBusqueda.scss';
@@ -10,6 +12,9 @@
 }
 body {
   background-color: #110038;
+}
+button {
+  outline: none;
 }
 .body-ligth {
   background-color: white;
