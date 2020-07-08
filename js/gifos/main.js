@@ -27,7 +27,6 @@ async function stopRecording() {
     let response = await fetch(`${URL_UPLOAD}${API_KEY}`, {
       method: 'POST',
       body: formData,
-      mode: 'cors',
     });
     let data = await response.json();
     console.log(data);
