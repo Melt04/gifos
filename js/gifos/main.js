@@ -8,7 +8,7 @@ let panelVideo = document.querySelector('.panel-video-gifos');
 let bComenzar = document.querySelector('#startRecording');
 let bDetener = document.querySelector('#stopRecording');
 let img = document.querySelector('#gifPreview');
-
+let url;
 let recorder;
 let stream = null;
 /* function calculateTimeDuration(secs) {
@@ -44,7 +44,7 @@ async function createMedia() {
       frameRate: 1,
       quality: 10,
       width: 360,
-      hidden: 240,
+      height: 240,
     });
     recorder.stream = stream;
     console.log('media creada');
@@ -57,47 +57,42 @@ async function prepareVideoRecording() {
   panelGifos.style.display = 'none';
   panelVideo.style.display = 'block';
   bComenzar.style.display = 'block';
-  await createMedia();
+  /* await createMedia(); */
+  let constraints = {
+    video: { width: 700, height: 300 },
+  };
+  try {
+    stream = await navigator.mediaDevices.getUserMedia(constraints);
+    gifosVideo.srcObject = stream;
+  } catch (e) {}
 }
 
 async function startRecording() {
-  if (!recorder) {
-    await createMedia();
-    img.src = '';
-  }
+  img.src = '';
+
+  await createMedia();
 
   gifosVideo.srcObject = stream;
-  console.log(2);
+
   recorder.startRecording();
 }
-function stopRecord() {
-  recorder.stopRecording().then(data => {
-    recorder.getBlob().then(blob => {
-      /*    gifosVideo.src = null; */
-      url = URL.createObjectURL(blob);
-      img.src = url;
-      /*   recorder.stream.stop(); */
-      /* recorder.destroy();*/
-      /*    gifosVideo.srcObject = null; */
-      /*     recorder = null; */
-    });
-  });
+async function stopRecord() {
+  await recorder.stopRecording();
+  let blob = await recorder.getBlob();
+  img.src = URL.createObjectURL(blob);
 }
 async function stopRecording() {
   try {
     await recorder.stopRecording();
     let blob = await recorder.getBlob();
-
-    invokeSaveAsDialog(blob, 'Mi Gif');
     let formData = new FormData();
     formData.append('file', blob, 'myGif.gif');
-    console.log(formData.get('file'));
+
     let response = await fetch(`${URL_UPLOAD}${API_KEY}`, {
       method: 'POST',
       body: formData,
     });
     let data = await response.json();
-    console.log(data);
   } catch (error) {
     console.log(error);
   }
