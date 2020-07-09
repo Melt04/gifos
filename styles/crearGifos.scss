@@ -1,6 +1,7 @@
 /** @format */
 
-.crear-gifos {
+.crear-gifos,
+.panel-video-gifos {
   width: 700px;
   background-color: #e6e6e6;
   height: 400px;
@@ -47,4 +48,18 @@
       line-height: 18px;
     }
   }
+}
+.panel-video-gifos {
+  display: none;
+}
+/* #startRecording {
+  width: 200px;
+  transition: 2s;
+  &:hover {
+    width: 600px;
+  }
+} */
+video {
+  width: 700px;
+  height: 300px;
 }

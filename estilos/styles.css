@@ -195,24 +195,29 @@ form {
       height: 280px; }
 
 /** @format */
-.crear-gifos {
+.crear-gifos,
+.panel-video-gifos {
   width: 700px;
   background-color: #e6e6e6;
   height: 400px;
   margin: auto; }
-  .crear-gifos .titulo {
+  .crear-gifos .titulo,
+  .panel-video-gifos .titulo {
     background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
     font-family: 'Chakra Petch', sans-serif;
     font-size: 14px;
     color: #ffffff;
     letter-spacing: 0; }
-  .crear-gifos .crear-gifos-contenido {
+  .crear-gifos .crear-gifos-contenido,
+  .panel-video-gifos .crear-gifos-contenido {
     display: flex;
     flex-direction: row;
     padding: 20px; }
-    .crear-gifos .crear-gifos-contenido .gifos-contenido-texto {
+    .crear-gifos .crear-gifos-contenido .gifos-contenido-texto,
+    .panel-video-gifos .crear-gifos-contenido .gifos-contenido-texto {
       margin-left: 10px; }
-      .crear-gifos .crear-gifos-contenido .gifos-contenido-texto :first-child {
+      .crear-gifos .crear-gifos-contenido .gifos-contenido-texto :first-child,
+      .panel-video-gifos .crear-gifos-contenido .gifos-contenido-texto :first-child {
         font-family: 'Chakra Petch', sans-serif;
         font-size: 16px;
         font-weight: bold;
@@ -220,19 +225,36 @@ form {
         letter-spacing: 0;
         line-height: 22px;
         margin-bottom: 3%; }
-      .crear-gifos .crear-gifos-contenido .gifos-contenido-texto p {
+      .crear-gifos .crear-gifos-contenido .gifos-contenido-texto p,
+      .panel-video-gifos .crear-gifos-contenido .gifos-contenido-texto p {
         font-size: 14px;
         line-height: 20px;
         margin: 2%; }
-        .crear-gifos .crear-gifos-contenido .gifos-contenido-texto p span {
+        .crear-gifos .crear-gifos-contenido .gifos-contenido-texto p span,
+        .panel-video-gifos .crear-gifos-contenido .gifos-contenido-texto p span {
           font-weight: bold; }
-  .crear-gifos .gifos-panel-boton button {
+  .crear-gifos .gifos-panel-boton button,
+  .panel-video-gifos .gifos-panel-boton button {
     font-family: 'Chakra Petch', sans-serif;
     font-size: 16px;
     color: #110038;
     letter-spacing: 0;
     text-align: center;
     line-height: 18px; }
+
+.panel-video-gifos {
+  display: none; }
+
+/* #startRecording {
+  width: 200px;
+  transition: 2s;
+  &:hover {
+    width: 600px;
+  }
+} */
+video {
+  width: 700px;
+  height: 300px; }
 
 * {
   margin: 0;

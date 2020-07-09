@@ -1,61 +1,71 @@
 <!-- @format -->
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./estilos/styles.css" />
 
-  <link
-    href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css?family=Chakra+Petch:600&display=swap"
-    rel="stylesheet"
-  />
-  <title>Document</title>
-</head>
-<body class="body">
-  <header>
-    <div class="title-bar change">
-      ¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de
-      visitas: 12.765.803
-    </div>
-    <nav>
-      <div>
-        <a href="/"><img id='arrow' src="./assets/arrow.svg" alt="" /></a>
-        <img src="./assets/gifOF_logo.png" alt="" />
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./estilos/styles.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Chakra+Petch:600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body class="body">
+    <header>
+      <div class="title-bar change">
+        ¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número
+        de visitas: 12.765.803
       </div>
-    </nav>
-  </header>
-  <div class="crear-gifos">
-    <p class="titulo">Crear gifos</p>
-    <div class="crear-gifos-contenido">
-      <div class="gifos-contenido-img">
-        <img src="./assets/window img.png" alt="" />
+      <nav>
+        <div>
+          <a href="/"><img id="arrow" src="./assets/arrow.svg" alt="" /></a>
+          <img src="./assets/gifOF_logo.png" alt="" />
+        </div>
+      </nav>
+    </header>
+    <div class="crear-gifos">
+      <p class="titulo">Crear gifos</p>
+      <div class="crear-gifos-contenido">
+        <div class="gifos-contenido-img">
+          <img src="./assets/window img.png" alt="" />
+        </div>
+        <div class="gifos-contenido-texto">
+          <p>Aqui podes crear tus propios Gifos</p>
+          <p>
+            Crear tu guifo es muy fácil, graba cualquier imagen con tu cámara y
+            obtén guifos personalizados. Los pasos para crear tu guifo son:
+          </p>
+          <p>
+            <span>1)</span>Dar permisos de acceso a la cámara (sólo por el
+            tiempo de uso)
+          </p>
+          <p><span>2)</span>Capturar tu momento guifo</p>
+          <p><span>3)</span>Revisar el momento</p>
+          <p><span>4)</span>Listo para subir y compartir!</p>
+          <p>¿Quieres comenzar a crear tu <span>guifo</span> ahora?</p>
+        </div>
       </div>
-      <div class="gifos-contenido-texto">
-        <p>Aqui podes crear tus propios Gifos</p>
-        <p>
-          Crear tu guifo es muy fácil, graba cualquier imagen con tu cámara y
-          obtén guifos personalizados. Los pasos para crear tu guifo son:
-        </p>
-        <p>
-          <span>1)</span>Dar permisos de acceso a la cámara (sólo por el tiempo
-          de uso)
-        </p>
-        <p><span>2)</span>Capturar tu momento guifo</p>
-        <p><span>3)</span>Revisar el momento</p>
-        <p><span>4)</span>Listo para subir y compartir!</p>
-        <p>¿Quieres comenzar a crear tu <span>guifo</span> ahora?</p>
+      <div class="gifos-panel-boton">
+        <button id="stop">Cancelar</button>
+        <button id="recording">Comenzar</button>
       </div>
     </div>
-    <div class="gifos-panel-boton">
-      <button  id='stop'>Cancelar</button>
-      <button id='recording'>Comenzar</button>
+    <div class="panel-video-gifos">
+      <p class="titulo">Titulo</p>
+      <video src="" autoplay id="gifosVideo"></video>
+
+      <button id="startRecording">Comenzar</button>
+      <button id="stopRecording">Detener</button>
+      <img src="" alt="" id="gifPreview" />
     </div>
-  </div>
-  <video src=""  autoplay id='gifosVideo'></video>
-  <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
-  <script src="./js/gifos/main.js"></script>
-</body>
+
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="./js/gifos/main.js"></script>
+  </body>
 </html>
