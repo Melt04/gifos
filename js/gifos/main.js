@@ -1,13 +1,3 @@
-const URL_UPLOAD = 'https://upload.giphy.com/v1/gifs?';
-const API_KEY = '&api_key=5LJ4ojAQUiIR6u01vCaBsPf60XqoN0ae';
-let bRecording = document.querySelector('#recording');
-let gifosVideo = document.querySelector('#gifosVideo');
-let stop = document.querySelector('#stop');
-let panelGifos = document.querySelector('.crear-gifos');
-let panelVideo = document.querySelector('.panel-video-gifos');
-let bComenzar = document.querySelector('#startRecording');
-let bDetener = document.querySelector('#stopRecording');
-let img = document.querySelector('#gifPreview');
 let url;
 let recorder;
 let stream = null;
@@ -31,6 +21,14 @@ let stream = null;
     return hr + ':' + min + ':' + sec;
 }
 */
+let bRecording = document.querySelector('#recording');
+let gifosVideo = document.querySelector('#gifosVideo');
+let stop = document.querySelector('#stop');
+let panelGifos = document.querySelector('.crear-gifos');
+let panelVideo = document.querySelector('.panel-video-gifos');
+let bComenzar = document.querySelector('#startRecording');
+let bDetener = document.querySelector('#stopRecording');
+let img = document.querySelector('#gifPreview');
 
 async function createMedia() {
   let constraints = {
