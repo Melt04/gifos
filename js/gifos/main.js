@@ -1,6 +1,9 @@
 let url;
 let recorder;
-let stream = null;
+let stream;
+let recorderVideo = null;
+let recorderGif = null;
+
 /* function calculateTimeDuration(secs) {
     var hr = Math.floor(secs / 3600);
     var min = Math.floor((secs - (hr * 3600)) / 60);
@@ -21,71 +24,113 @@ let stream = null;
     return hr + ':' + min + ':' + sec;
 }
 */
-let bRecording = document.querySelector('#recording');
+let bPrepRecording = document.querySelector('#prepRecording');
 let gifosVideo = document.querySelector('#gifosVideo');
-let stop = document.querySelector('#stop');
+let panelVideoRecording = document.querySelector('.panel-video-grabar');
 let panelGifos = document.querySelector('.crear-gifos');
 let panelVideo = document.querySelector('.panel-video-gifos');
-let bComenzar = document.querySelector('#startRecording');
-let bDetener = document.querySelector('#stopRecording');
-let img = document.querySelector('#gifPreview');
+let bStartRecording = document.querySelector('#startRecording');
+let bStopRecording = document.querySelector('#stopRecording');
+let panelVideoReady = document.querySelector('.panel-video-listo');
+let panelVideoPreview = document.querySelector('.panel-video-preview');
+let videoPreview = document.querySelector('#videoPreview');
+let bCancel = document.querySelector('#cancel');
+let imgClose = document.querySelector('#imgClose');
+let repeatVideo = document.querySelector('#repeatGif');
+let buploadGif = document.querySelector('#uploadGif');
+
+function toggleVideo() {
+  videoPreview.src = '';
+  panelGifos.style.display =
+    panelGifos.style.display === 'none' ? 'block' : 'none';
+  panelVideo.style.display =
+    panelVideo.style.display === 'block' ? 'none' : 'block';
+  bStartRecording.style.display =
+    bStartRecording.style.display === 'block' ? 'none' : 'block';
+}
+function toggleRecording() {
+  bStopRecording.style.display =
+    bStopRecording.style.display === 'block' ? 'none' : 'block';
+  panelVideoRecording.style.display =
+    panelVideoRecording.style.display === 'none' ? 'flex' : 'none';
+  panelVideoReady.style.display =
+    panelVideoReady.style.display === 'flex' ? 'none' : 'flex';
+  /* panelVideoPreview.style.display =
+    panelVideoPreview.style.display === 'block' ? 'none' : 'block'; */
+  if (bStopRecording.hasAttribute('disabled')) {
+    bStopRecording.removeAttribute('disabled');
+  } else {
+    bStopRecording.setAttribute('disabled', 'true');
+  }
+}
+function togglePreview() {
+  panelVideo.style.display =
+    panelVideo.style.display === 'none' ? 'block' : 'none';
+
+  panelVideoPreview.style.display =
+    panelVideoPreview.style.display === 'block' ? 'none' : 'block';
+}
+function backToIndex() {
+  window.location = '/';
+}
 
 async function createMedia() {
-  let constraints = {
-    video: { width: 700, height: 300 },
-  };
   try {
-    stream = await navigator.mediaDevices.getUserMedia(constraints);
-    gifosVideo.srcObject = stream;
-    recorder = new RecordRTCPromisesHandler(stream, {
-      type: 'gif',
+    recorderVideo = new RecordRTCPromisesHandler(stream, {
+      type: 'video',
       frameRate: 1,
       quality: 10,
       width: 360,
       height: 240,
     });
-    recorder.stream = stream;
-    console.log('media creada');
+    recorderVideo.stream = stream;
+    recorderGif = new RecordRTCPromisesHandler(stream, {
+      type: 'gif',
+      frameRate: 1,
+      quality: 10,
+      width: 360,
+      hidden: 240,
+    });
+    recorderGif.stream = stream;
   } catch (err) {
     console.log(err);
   }
 }
 
 async function prepareVideoRecording() {
-  panelGifos.style.display = 'none';
-  panelVideo.style.display = 'block';
-  bComenzar.style.display = 'block';
-  /* await createMedia(); */
+  toggleVideo();
   let constraints = {
     video: { width: 700, height: 300 },
   };
   try {
     stream = await navigator.mediaDevices.getUserMedia(constraints);
     gifosVideo.srcObject = stream;
-  } catch (e) {}
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 async function startRecording() {
-  img.src = '';
-
+  videoPreview.src = '';
   await createMedia();
-
   gifosVideo.srcObject = stream;
-
-  recorder.startRecording();
+  recorderVideo.startRecording();
+  recorderGif.startRecording();
+  toggleRecording();
 }
 async function stopRecord() {
-  await recorder.stopRecording();
-  let blob = await recorder.getBlob();
-  img.src = URL.createObjectURL(blob);
+  toggleRecording();
+  togglePreview();
+  await recorderVideo.stopRecording();
+  await recorderGif.stopRecording();
+  let blob = await recorderVideo.getBlob();
+  videoPreview.src = URL.createObjectURL(blob);
 }
-async function stopRecording() {
+async function uploadGif() {
   try {
-    await recorder.stopRecording();
-    let blob = await recorder.getBlob();
+    let blob = await recorderGif.getBlob();
     let formData = new FormData();
     formData.append('file', blob, 'myGif.gif');
-
     let response = await fetch(`${URL_UPLOAD}${API_KEY}`, {
       method: 'POST',
       body: formData,
@@ -96,6 +141,18 @@ async function stopRecording() {
   }
 }
 
-bRecording.addEventListener('click', prepareVideoRecording);
-bComenzar.addEventListener('click', startRecording);
-bDetener.addEventListener('click', stopRecord);
+async function closeButton() {
+  toggleVideo();
+  if (recorderVideo) {
+    recorderVideo.stopRecording();
+    toggleRecording();
+  }
+}
+
+bPrepRecording.addEventListener('click', prepareVideoRecording);
+bStartRecording.addEventListener('click', startRecording);
+bStopRecording.addEventListener('click', stopRecord);
+bCancel.addEventListener('click', backToIndex);
+imgClose.addEventListener('click', closeButton);
+repeatVideo.addEventListener('click', togglePreview);
+buploadGif.addEventListener('click', uploadGif);

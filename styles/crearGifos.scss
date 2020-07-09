@@ -1,7 +1,15 @@
 /** @format */
-
-.crear-gifos,
-.panel-video-gifos {
+@mixin background-panel-button {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+@mixin background-panel-stop {
+  background: #ff6161;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+}
+@mixin background-panel {
   width: 700px;
   background-color: #e6e6e6;
   height: 400px;
@@ -12,6 +20,14 @@
     font-size: 14px;
     color: #ffffff;
     letter-spacing: 0;
+  }
+}
+.crear-gifos,
+.panel-video-gifos {
+  @include background-panel;
+  .titulo {
+    display: flex;
+    justify-content: space-between;
   }
   .crear-gifos-contenido {
     display: flex;
@@ -39,7 +55,11 @@
     }
   }
   .gifos-panel-boton {
+    display: flex;
+    justify-content: flex-end;
     button {
+      padding: 10px;
+      margin-left: 2%;
       font-family: 'Chakra Petch', sans-serif;
       font-size: 16px;
       color: #110038;
@@ -47,19 +67,90 @@
       text-align: center;
       line-height: 18px;
     }
+    #cancel {
+      background: #fff4fd;
+    }
+    #recording {
+      background: #f7c9f3;
+    }
   }
 }
 .panel-video-gifos {
   display: none;
 }
-/* #startRecording {
-  width: 200px;
-  transition: 2s;
-  &:hover {
-    width: 600px;
+.panel-video-botones {
+  #stopRecording {
+    display: none;
   }
-} */
-video {
-  width: 700px;
-  height: 300px;
+}
+.panel-video-grabar {
+  width: 144px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  float: right;
+
+  button {
+    padding: 10px;
+    @include background-panel-button;
+    width: 135px;
+  }
+  img {
+    @include background-panel-button;
+    padding: 0 5px;
+  }
+}
+
+.panel-video-listo {
+  display: none;
+  float: right;
+  img {
+    @include background-panel-stop;
+    padding: 0 5px;
+  }
+  button {
+    @include background-panel-stop;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    width: 144px;
+    height: 36;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 18px;
+  }
+}
+
+.panel-video-preview {
+  display: none;
+  @include background-panel;
+
+  .panel-preview-botones {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  button {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 16px;
+    color: #110038;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 18px;
+    padding: 6px;
+  }
+  #newVideo {
+    background: #fff4fd;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  }
+  #uploadVideo {
+    background: #f7c9f3;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  }
+
+  video {
+    width: 700px;
+    height: 300px;
+  }
 }

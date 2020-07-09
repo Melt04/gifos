@@ -52,17 +52,39 @@
         </div>
       </div>
       <div class="gifos-panel-boton">
-        <button id="stop">Cancelar</button>
-        <button id="recording">Comenzar</button>
+        <button id="cancel">Cancelar</button>
+        <button id="prepRecording">Comenzar</button>
       </div>
     </div>
     <div class="panel-video-gifos">
-      <p class="titulo">Titulo</p>
+      <div class="titulo">
+        <p>Un chequeo antes de empezar</p>
+        <img id="imgClose" src="./assets/button close.svg" alt="" />
+      </div>
       <video src="" autoplay id="gifosVideo"></video>
 
-      <button id="startRecording">Comenzar</button>
-      <button id="stopRecording">Detener</button>
-      <img src="" alt="" id="gifPreview" />
+      <div class="panel-video-botones">
+        <div class="panel-video-grabar">
+          <img src="./assets/camera.svg" alt="" />
+          <button id="startRecording">Capturar</button>
+        </div>
+        <div class="panel-video-listo">
+          <img src="./assets/recording.svg" alt="" />
+          <button id="stopRecording" disabled>Listo</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-video-preview">
+      <p class="titulo">Vista previa</p>
+      <video src="" autoplay id="videoPreview"></video>
+      <div class="panel-preview-botones">
+        <div class="video-control">
+          <img src="./assets/forward.svg" alt="" />
+        </div>
+        <button id="repeatGif">Repetir Captura</button>
+        <button id="uploadGif">Subir Guifo</button>
+      </div>
     </div>
 
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
