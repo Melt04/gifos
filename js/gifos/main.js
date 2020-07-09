@@ -55,8 +55,7 @@ function toggleRecording() {
     panelVideoRecording.style.display === 'none' ? 'flex' : 'none';
   panelVideoReady.style.display =
     panelVideoReady.style.display === 'flex' ? 'none' : 'flex';
-  /* panelVideoPreview.style.display =
-    panelVideoPreview.style.display === 'block' ? 'none' : 'block'; */
+
   if (bStopRecording.hasAttribute('disabled')) {
     bStopRecording.removeAttribute('disabled');
   } else {
@@ -136,6 +135,12 @@ async function uploadGif() {
       body: formData,
     });
     let data = await response.json();
+    saveToLocalStorage(data.data.id);
+
+    alert('Tu gifo se ha subido con exito 👍👍');
+    videoPreview.src = '';
+
+    togglePreview();
   } catch (error) {
     console.log(error);
   }
@@ -149,6 +154,12 @@ async function closeButton() {
   }
 }
 
+function saveToLocalStorage(id) {
+  let gifs = localStorage.getItem('misGifs');
+  gifs = gifs === null ? [] : JSON.parse(gifs);
+  gifs.push(id);
+  localStorage.setItem('misGifs', JSON.stringify(gifs));
+}
 bPrepRecording.addEventListener('click', prepareVideoRecording);
 bStartRecording.addEventListener('click', startRecording);
 bStopRecording.addEventListener('click', stopRecord);

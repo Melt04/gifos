@@ -325,15 +325,13 @@ form {
     letter-spacing: 0;
     text-align: center;
     line-height: 18px;
-    padding: 6px; }
-  .panel-video-preview #newVideo {
-    background: #fff4fd;
+    padding: 6px;
     border: 1px solid #110038;
     box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff; }
-  .panel-video-preview #uploadVideo {
-    background: #f7c9f3;
-    border: 1px solid #110038;
-    box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff; }
+  .panel-video-preview #repeatGif {
+    background: #fff4fd; }
+  .panel-video-preview #uploadGif {
+    background: #f7c9f3; }
   .panel-video-preview video {
     width: 700px;
     height: 300px; }

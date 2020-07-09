@@ -137,16 +137,14 @@
     text-align: center;
     line-height: 18px;
     padding: 6px;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
   }
-  #newVideo {
+  #repeatGif {
     background: #fff4fd;
-    border: 1px solid #110038;
-    box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
   }
-  #uploadVideo {
+  #uploadGif {
     background: #f7c9f3;
-    border: 1px solid #110038;
-    box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
   }
 
   video {
