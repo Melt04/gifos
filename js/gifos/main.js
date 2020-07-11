@@ -23,6 +23,8 @@ let bCancel = document.querySelector('#cancel');
 let imgClose = document.querySelector('#imgClose');
 let repeatVideo = document.querySelector('#repeatGif');
 let buploadGif = document.querySelector('#uploadGif');
+let videoControl = document.querySelector('.video-control');
+let videoCurrentTime = document.querySelector('#videoTime');
 
 // Declaraion de funciones
 function calculateTimeDuration(secs) {
@@ -155,6 +157,19 @@ function saveToLocalStorage(id) {
   localStorage.setItem('misGifs', JSON.stringify(gifs));
 }
 
+function updateProgress() {
+  const progress = document.getElementById('progress');
+  let value = 0;
+  console.log(2);
+  if (videoPreview.currentTime > 0) {
+    value = Math.floor(100 / videoPreview.duration * videoPreview.currentTime);
+    videoCurrentTime.innerHTML = calculateTimeDuration(
+      videoPreview.currentTime
+    );
+  }
+  progress.style.width = value + '%';
+}
+
 // Eventos
 
 bPrepRecording.addEventListener('click', prepareVideoRecording);
@@ -164,3 +179,5 @@ bCancel.addEventListener('click', backToIndex);
 imgClose.addEventListener('click', closeButton);
 repeatVideo.addEventListener('click', togglePreview);
 buploadGif.addEventListener('click', uploadGif);
+videoPreview.addEventListener('timeupdate', updateProgress);
+videoControl.addEventListener('click', () => videoPreview.play());

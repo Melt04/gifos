@@ -133,8 +133,30 @@
   @include background-panel;
 
   .panel-preview-botones {
+    margin-top: 4%;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
+
+    .video-control {
+      background: #f7c9f3;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+      height: 23px;
+      text-align: center;
+      width: 20px;
+      img {
+        margin: 30% 0;
+      }
+    }
+    .time-duration {
+      background: #ffffff;
+      border: 1px solid #979797;
+      box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+      padding: 1% 2%;
+      width: 80px;
+      text-align: center;
+    }
   }
   button {
     font-family: 'Chakra Petch', sans-serif;
@@ -161,4 +183,16 @@
 }
 .show {
   display: block;
+}
+#progressBar {
+  border: 1px solid #aaa;
+  color: #fff;
+  width: 295px;
+  height: 20px;
+  background-color: #999999;
+}
+#progress {
+  background: #f7c9f3;
+  height: 20px;
+  display: inline-block;
 }
