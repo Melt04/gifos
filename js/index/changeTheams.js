@@ -1,7 +1,9 @@
 let bLightTheme = document.querySelector('#lightTheme');
 let bDarkTheme = document.querySelector('#darkTheme');
-// Por defecto el theme empieza  en Light
 
+let imgMainLogo = document.querySelector('#mainLogo');
+
+// Por defecto el theme empieza  en Light
 bLightTheme.classList.add('active');
 function changeTheme() {
   if (this.classList.contains('active')) {
@@ -25,11 +27,13 @@ function changeTheme() {
   body.classList.toggle('body-dark');
   let arrowAtributte = arrowImage.getAttribute('src');
 
-  //Cambiar entre las  dropdown
+  //Cambiar entre las  dropdown ./assets/gifOF_logo.png
   if (arrowAtributte === './assets/dropdown.svg') {
     arrowImage.setAttribute('src', './assets/dropdownDark.svg');
+    imgMainLogo.setAttribute('src', './assets/gifOF_logo_dark.png');
   } else {
     arrowImage.setAttribute('src', './assets/dropdown.svg');
+    imgMainLogo.setAttribute('src', './assets/gifOF_logo.png');
   }
   if (bDarkTheme.classList.contains('active')) {
     localStorage.setItem('theme', 'dark');

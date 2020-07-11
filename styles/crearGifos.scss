@@ -24,6 +24,7 @@
 }
 .crear-gifos,
 .panel-video-gifos {
+  display: none;
   @include background-panel;
   .titulo {
     display: flex;
@@ -78,6 +79,9 @@
 .panel-video-gifos {
   display: none;
 }
+/* .show {
+  display: block;
+} */
 .panel-video-botones {
   #stopRecording {
     display: none;
@@ -86,7 +90,7 @@
 .panel-video-grabar {
   width: 144px;
   height: 36px;
-  display: flex;
+  display: none;
   justify-content: center;
   float: right;
 
@@ -120,6 +124,9 @@
     line-height: 18px;
   }
 }
+.show-flex {
+  display: flex;
+}
 
 .panel-video-preview {
   display: none;
@@ -151,4 +158,7 @@
     width: 700px;
     height: 300px;
   }
+}
+.show {
+  display: block;
 }

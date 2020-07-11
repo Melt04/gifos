@@ -1,29 +1,14 @@
+// variables
 let url;
 let recorder;
 let stream;
 let recorderVideo = null;
 let recorderGif = null;
+let timeDuration = 0;
+let intervalID;
 
-/* function calculateTimeDuration(secs) {
-    var hr = Math.floor(secs / 3600);
-    var min = Math.floor((secs - (hr * 3600)) / 60);
-    var sec = Math.floor(secs - (hr * 3600) - (min * 60));
+// Elementos DOM
 
-    if (min < 10) {
-        min = "0" + min;
-    }
-
-    if (sec < 10) {
-        sec = "0" + sec;
-    }
-
-    if(hr <= 0) {
-        return min + ':' + sec;
-    }
-
-    return hr + ':' + min + ':' + sec;
-}
-*/
 let bPrepRecording = document.querySelector('#prepRecording');
 let gifosVideo = document.querySelector('#gifosVideo');
 let panelVideoRecording = document.querySelector('.panel-video-grabar');
@@ -39,23 +24,32 @@ let imgClose = document.querySelector('#imgClose');
 let repeatVideo = document.querySelector('#repeatGif');
 let buploadGif = document.querySelector('#uploadGif');
 
+// Declaraion de funciones
+function calculateTimeDuration(secs) {
+  var hr = Math.floor(secs / 3600);
+  var min = Math.floor((secs - hr * 3600) / 60);
+  var sec = Math.floor(secs - hr * 3600 - min * 60);
+  if (min < 10) {
+    min = '0' + min;
+  }
+  if (sec < 10) {
+    sec = '0' + sec;
+  }
+  if (hr <= 0) {
+    return min + ':' + sec;
+  }
+  return hr + ':' + min + ':' + sec;
+}
 function toggleVideo() {
   videoPreview.src = '';
-  panelGifos.style.display =
-    panelGifos.style.display === 'none' ? 'block' : 'none';
-  panelVideo.style.display =
-    panelVideo.style.display === 'block' ? 'none' : 'block';
-  bStartRecording.style.display =
-    bStartRecording.style.display === 'block' ? 'none' : 'block';
+  panelGifos.classList.toggle('show');
+  panelVideo.classList.toggle('show');
 }
 function toggleRecording() {
   bStopRecording.style.display =
     bStopRecording.style.display === 'block' ? 'none' : 'block';
-  panelVideoRecording.style.display =
-    panelVideoRecording.style.display === 'none' ? 'flex' : 'none';
-  panelVideoReady.style.display =
-    panelVideoReady.style.display === 'flex' ? 'none' : 'flex';
-
+  panelVideoRecording.classList.toggle('show-flex');
+  panelVideoReady.classList.toggle('show-flex');
   if (bStopRecording.hasAttribute('disabled')) {
     bStopRecording.removeAttribute('disabled');
   } else {
@@ -63,11 +57,8 @@ function toggleRecording() {
   }
 }
 function togglePreview() {
-  panelVideo.style.display =
-    panelVideo.style.display === 'none' ? 'block' : 'none';
-
-  panelVideoPreview.style.display =
-    panelVideoPreview.style.display === 'block' ? 'none' : 'block';
+  panelVideo.classList.toggle('show');
+  panelVideoPreview.classList.toggle('show');
 }
 function backToIndex() {
   window.location = '/';
@@ -111,6 +102,7 @@ async function prepareVideoRecording() {
 
 async function startRecording() {
   videoPreview.src = '';
+  intervalID = setInterval(() => timeDuration++, 1);
   await createMedia();
   gifosVideo.srcObject = stream;
   recorderVideo.startRecording();
@@ -120,6 +112,8 @@ async function startRecording() {
 async function stopRecord() {
   toggleRecording();
   togglePreview();
+  clearInterval(intervalID);
+  console.log(timeDuration);
   await recorderVideo.stopRecording();
   await recorderGif.stopRecording();
   let blob = await recorderVideo.getBlob();
@@ -160,6 +154,9 @@ function saveToLocalStorage(id) {
   gifs.push(id);
   localStorage.setItem('misGifs', JSON.stringify(gifs));
 }
+
+// Eventos
+
 bPrepRecording.addEventListener('click', prepareVideoRecording);
 bStartRecording.addEventListener('click', startRecording);
 bStopRecording.addEventListener('click', stopRecord);

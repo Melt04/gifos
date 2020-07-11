@@ -197,6 +197,7 @@ form {
 /** @format */
 .crear-gifos,
 .panel-video-gifos {
+  display: none;
   width: 700px;
   background-color: #e6e6e6;
   height: 400px;
@@ -261,13 +262,16 @@ form {
 .panel-video-gifos {
   display: none; }
 
+/* .show {
+  display: block;
+} */
 .panel-video-botones #stopRecording {
   display: none; }
 
 .panel-video-grabar {
   width: 144px;
   height: 36px;
-  display: flex;
+  display: none;
   justify-content: center;
   float: right; }
   .panel-video-grabar button {
@@ -303,6 +307,9 @@ form {
     text-align: center;
     line-height: 18px; }
 
+.show-flex {
+  display: flex; }
+
 .panel-video-preview {
   display: none;
   width: 700px;
@@ -335,6 +342,9 @@ form {
   .panel-video-preview video {
     width: 700px;
     height: 300px; }
+
+.show {
+  display: block; }
 
 * {
   margin: 0;
