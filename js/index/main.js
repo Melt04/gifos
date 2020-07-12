@@ -19,5 +19,6 @@ buttonSearch.addEventListener('click', () =>
 );
 
 window.addEventListener('load', getSearchHistory);
-fetchTrendingGifs();
+window.addEventListener('load', fetchTrendingGifs);
+fetchRandomGifs();
 onSearch();

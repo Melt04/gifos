@@ -1,54 +1,67 @@
-function showGifs(array, element) {
-  element.innerHTML = '';
-  array.forEach(gif => {
-    let original = gif.images.original;
-    let div = document.createElement('div');
-    let img = document.createElement('img');
-    img.setAttribute('src', original.url);
-    div.append(img);
-    if (original.width > 500) {
-      div.style.gridColumn = 'span 2';
-    }
-    if (original.height > 500) {
-      div.style.gridRow = 'span 2';
-    }
-    element.append(div);
-  });
+async function fetchRandomGifs() {
+  let randomGifs = [];
+  for (let i = 0; i < 5; i++) {
+    randomGifs.push(fetch(`${URL_RANDOM}&${API_KEY}`));
+  }
+  try {
+    let results = await Promise.all(randomGifs);
+    let randomGifsJson = [];
+    results.forEach(response => {
+      randomGifsJson.push(response.json());
+    });
+    let data = await Promise.all(randomGifsJson);
+    let gifs = data.map(data => data.data);
+    let suggestedGif = document.querySelector('#suggestGrid');
+    showGifs(gifs, suggestedGif, true);
+  } catch (e) {
+    console.log(e);
+  }
 }
-function fetchTrendingGifs() {
-  fetch(`${URL_TRENDING}&${API_KEY}&limit=10`)
-    .then(response => response.json())
-    .then(data => {
-      let suggestedGif = document.querySelector('#suggestGrid');
-      showGifs(data.data, suggestedGif);
-    })
-    .catch(err => console.log(err));
+async function fetchTrendingGifs() {
+  try {
+    let response = await fetch(`${URL_TRENDING}&${API_KEY}`);
+    let gifs = await response.json();
+    let trendingGrid = document.querySelector('#trendingGrid');
+    showGifs(gifs.data, trendingGrid, false);
+  } catch (e) {
+    console.log(e);
+  }
 }
-
-function fetchAutocomplete() {
-  let complete = inputSearch.value;
-  fetch(`${URL_AUTOCOMPLETE}&${API_KEY}&q=${complete}&limit=3`)
-    .then(response => response.json())
-    .then(data => addAutocompleteInput(data.data))
-    .catch(err => console.log(err));
+async function fetchAutocomplete() {
+  try {
+    let complete = inputSearch.value;
+    let response = await fetch(
+      `${URL_AUTOCOMPLETE}&${API_KEY}&q=${complete}&limit=3`
+    );
+    let data = await response.json();
+    addAutocompleteInput(data.data);
+  } catch (e) {
+    console.log(e);
+  }
 }
-function fetchSearchGifs(buscar, saveHistory) {
+async function fetchSearchGifs(buscar, saveHistory) {
   event.preventDefault();
   divAutocomplete.style.display = 'none';
   if (!panelSearch.classList.contains('busqueda-show')) {
     panelSearch.classList.add('busqueda-show');
   }
-  fetch(`${URL_SEARCH}&${API_KEY}&q=${buscar}&limit=20`)
-    .then(response => response.json())
-    .then(data => {
-      let searchGrid = document.querySelector('#searchGrid');
-      if (saveHistory) {
-        saveSearchLocalStorate(inputSearch.value);
-        getSearchHistory();
-      }
-      showGifs(data.data, searchGrid);
-      searchHistory.style.display = 'block';
-      inputSearch.innerText = '';
-    })
-    .catch(err => console.log(err));
+  try {
+    let response = await fetch(`${URL_SEARCH}&${API_KEY}&q=${buscar}&limit=20`);
+    let data = await response.json();
+
+    if (data.data.length < 1) {
+      alert('No se encontraron resultados');
+    }
+    let searchGrid = document.querySelector('#searchGrid');
+    if (saveHistory) {
+      saveSearchLocalStorate(inputSearch.value);
+      getSearchHistory();
+    }
+
+    showGifs(data.data, searchGrid);
+    searchHistory.style.display = 'block';
+    inputSearch.innerText = '';
+  } catch (e) {
+    console.log(e);
+  }
 }

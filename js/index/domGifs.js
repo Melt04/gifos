@@ -24,6 +24,7 @@ function addAutocompleteInput(array) {
 
 function addOnClickSpan(span) {
   span.addEventListener('click', event => {
+    console.log(event.target.attributes[`data-search`].value);
     fetchSearchGifs(event.target.attributes[`data-search`].value, false);
   });
 }
@@ -45,4 +46,37 @@ function onSearch() {
     buttonSearch.style.color = '#b4b4b4';
     divAutocomplete.style.display = 'none';
   }
+}
+function createWindowAspect(div, img, gif) {
+  let span = document.createElement('span');
+  let p = document.createElement('p');
+  p.innerText = `#${gif.slug}`;
+  span.innerText = 'Ver mas...';
+  div.append(p);
+  div.append(img);
+  div.append(span);
+  span.setAttribute('data-search', gif.slug);
+  addOnClickSpan(span);
+}
+function showGifs(array, element, createWindow) {
+  element.innerHTML = '';
+  array.forEach(gif => {
+    let original = gif.images.original;
+    let div = document.createElement('div');
+    let img = document.createElement('img');
+    img.setAttribute('src', original.url);
+    if (createWindow) {
+      createWindowAspect(div, img, gif);
+    } else {
+      div.append(img);
+    }
+
+    if (original.width > 500) {
+      div.style.gridColumn = 'span 2';
+    }
+    if (original.height > 300) {
+      div.style.gridRow = 'span 2';
+    }
+    element.append(div);
+  });
 }
