@@ -1,6 +1,6 @@
 async function fetchRandomGifs() {
   let randomGifs = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 4; i++) {
     randomGifs.push(fetch(`${URL_RANDOM}&${API_KEY}`));
   }
   try {

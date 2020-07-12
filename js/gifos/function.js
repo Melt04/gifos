@@ -95,6 +95,7 @@ async function uploadGif() {
     alert('Tu gifo se ha subido con exito 👍👍');
     videoPreview.src = '';
     togglePreview();
+    getPersonalGif();
   } catch (error) {
     console.log(error);
   }
