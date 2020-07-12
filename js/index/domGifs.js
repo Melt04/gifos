@@ -24,7 +24,6 @@ function addAutocompleteInput(array) {
 
 function addOnClickSpan(span) {
   span.addEventListener('click', event => {
-    console.log(event.target.attributes[`data-search`].value);
     fetchSearchGifs(event.target.attributes[`data-search`].value, false);
   });
 }
@@ -55,7 +54,7 @@ function createWindowAspect(div, img, gif) {
   div.append(img);
   div.append(span);
   span.setAttribute('data-search', gif.slug);
-  span.classList.add('change');
+
   p.classList.add('change');
   let theme = localStorage.getItem(THEME);
   if (theme) {

@@ -8,9 +8,34 @@ bLightTheme.classList.add('active');
 function saveThemeOnRefresh() {
   let theme = localStorage.getItem(THEME);
   if (theme) {
-    bDarkTheme.click();
+    setDarkTheme();
   }
 }
+function setDarkTheme() {
+  let spans = document.querySelectorAll('span');
+  bDarkTheme.classList.add('active-dark');
+  bDarkTheme.classList.add('active');
+  bLightTheme.classList.remove('active');
+  bLightTheme.classList.remove('active-ligth');
+  let body = document.querySelector('body');
+  let gifosLabel = document.querySelector('#gifosLabel');
+  let changeElement = document.getElementsByClassName('change');
+  gifosLabel.classList.add('dark-label');
+  body.classList.add('body-dark');
+  for (let i = 0; i < changeElement.length; i++) {
+    if (changeElement[i].nodeName == 'BUTTON') {
+      changeElement[i].classList.add('darkButton');
+    } else {
+      changeElement[i].classList.add('darkBar');
+    }
+  }
+  for (let i = 0; i < spans.length; i++) {
+    spans[i].classList.add('darkSpan');
+  }
+  arrowImage.setAttribute('src', './assets/dropdownDark.svg');
+  imgMainLogo.setAttribute('src', './assets/gifOF_logo_dark.png');
+}
+
 function changeTheme() {
   let spans = document.querySelectorAll('span');
   if (this.classList.contains('active')) {

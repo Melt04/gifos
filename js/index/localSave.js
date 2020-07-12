@@ -9,12 +9,12 @@ function getSearchHistory() {
   searchItem.map(search => '#' + search).forEach(value => {
     let span = document.createElement('span');
     span.setAttribute('data-search', value.slice(1));
-    addOnClickSpan(span);
-    span.innerText = value;
     let theme = localStorage.getItem(THEME);
     if (theme) {
       span.classList.add('darkSpan');
     }
+    addOnClickSpan(span);
+    span.innerText = value;
     searchHistory.append(span);
   });
 }
