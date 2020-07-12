@@ -1,0 +1,8 @@
+/** @format */
+.busqueda {
+  display: none;
+}
+.busqueda-show {
+  display: block;
+  @include panelLayout;
+}

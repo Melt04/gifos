@@ -24,7 +24,7 @@
         de visitas: 12.765.803
       </div>
       <nav>
-        <img src="./assets/gifOF_logo.png" alt="logo pricipal" id='mainLogo' />
+        <img src="./assets/gifOF_logo.png" alt="logo pricipal" id="mainLogo" />
         <div class="side-menu">
           <button class="nav-boton change" id="createGifos">
             <a href="./crearGif.html">Crear Gifos</a>
@@ -65,25 +65,26 @@
           </div>
         </form>
         <div class="autocomplete"></div>
+        <div id="searchHistory"></div>
       </div>
     </section>
     <section class="sugerencias">
-      <input type="text" name="" id="" placeholder="Hoy te sugerimos:" />
-      <div class="sugerencias-grid">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+      <p>Hoy te sugerimos</p>
+      <div class="panel-grid" id="suggestGrid"></div>
     </section>
     <section class="tendencias">
-      <input type="text" name="" placeholder="Tendencias" />
-      <div class="tendencias-grid"></div>
+      <p>Tendencias</p>
+      <div class="panel-grid" id="trendingGrid"></div>
     </section>
-    <script src="./js/const/const.js"></script>
-    <script src="./js/index/fetchGifs.js"></script>
+    <section class="busqueda">
+      <p>Busqueda</p>
+      <div class="panel-grid" id="searchGrid"></div>
+    </section>
+    <script src="./js/const.js"></script>
+    <script src="./js/index/localSave.js"></script>
     <script src="./js/index/changeTheams.js"></script>
-    <script src="./js/index/searchGif.js"></script>
+    <script src="./js/index/fetchGifs.js"></script>
+    <script src="./js/index/domGifs.js"></script>
     <script src="./js/index/main.js"></script>
   </body>
 </html>

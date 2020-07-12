@@ -1,3 +1,5 @@
+/** @format */
+
 @mixin textBox {
   width: 100%;
   height: 20px;
@@ -24,4 +26,23 @@
 
 @mixin darkBar {
   background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+}
+
+@mixin panelLayout {
+  margin-top: 4%;
+  p {
+    @include textBox;
+  }
+  .panel-grid {
+    margin: 2% 40px;
+    width: 100%;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, 200px);
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }

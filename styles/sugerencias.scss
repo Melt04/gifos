@@ -1,19 +1,10 @@
 /** @format */
 
 .sugerencias {
-  margin-top: 4%;
-  input {
-    @include textBox;
-  }
-  .sugerencias-grid {
-    display: flex;
-    flex-direction: row;
-    div {
-      margin: 10px;
-      content: '';
-      background-color: black;
-      width: 280px;
-      height: 280px;
-    }
+  @include panelLayout;
+  grid-template-rows: repeat(1, 250px);
+  .panel-grid {
+    height: 200px;
+    overflow: hidden;
   }
 }

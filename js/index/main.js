@@ -11,8 +11,13 @@ window.addEventListener('load', () => {
 });
 bLightTheme.addEventListener('click', changeTheme);
 bDarkTheme.addEventListener('click', changeTheme);
-inputSearch.addEventListener('keyup', enabledSearch);
-buttonSearch.addEventListener('click', fetchGifs);
 
+inputSearch.addEventListener('keyup', onSearch);
+
+buttonSearch.addEventListener('click', () =>
+  fetchSearchGifs(inputSearch.value, true)
+);
+
+window.addEventListener('load', getSearchHistory);
 fetchTrendingGifs();
-enabledSearch();
+onSearch();

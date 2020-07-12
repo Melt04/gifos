@@ -124,6 +124,7 @@
     line-height: 18px;
   }
 }
+
 .show-flex {
   display: flex;
 }
@@ -181,6 +182,18 @@
     height: 300px;
   }
 }
+.panel-mis-gifos {
+  margin-top: 4%;
+  display: none;
+  padding: 0 3% 0 3%;
+  p {
+    padding: 4px;
+    background: #fffafe;
+    border: 1px solid #e6bbe2;
+    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+  }
+}
+
 .show {
   display: block;
 }
