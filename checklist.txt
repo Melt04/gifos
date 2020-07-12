@@ -1,0 +1,12 @@
+[] Condicion 1: Falta Boton de Mis gifs
+[] Condicion 2: Revisar Cambios de Theme
+[] Condicion 3: Revisar cambios de estados. Falta el boton buscar
+[x] Condicion 4:
+[x] Condicion 5:
+[x] Condicion 6:
+[x] Condicion 7:
+[x] Condicion 8:
+[x] Condicion 9:
+[x] Condicion 10:
+
+Span background: #2E32FB;

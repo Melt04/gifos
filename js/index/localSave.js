@@ -11,6 +11,10 @@ function getSearchHistory() {
     span.setAttribute('data-search', value.slice(1));
     addOnClickSpan(span);
     span.innerText = value;
+    let theme = localStorage.getItem(THEME);
+    if (theme) {
+      span.classList.add('darkSpan');
+    }
     searchHistory.append(span);
   });
 }

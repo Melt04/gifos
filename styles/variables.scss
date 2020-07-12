@@ -6,6 +6,11 @@
   background: #fffafe;
   border: 1px solid #e6bbe2;
   box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 14px;
+  color: #110038;
+  font-weight: normal;
+  letter-spacing: 0;
 }
 
 @mixin ligthButton {
@@ -28,9 +33,13 @@
   background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
 }
 
+@mixin darkSpan {
+  background: #2e32fb;
+}
 @mixin panelLayout {
   margin-top: 4%;
-  p {
+  p,
+  h2 {
     @include textBox;
   }
   .panel-grid {

@@ -19,7 +19,7 @@ async function fetchRandomGifs() {
 }
 async function fetchTrendingGifs() {
   try {
-    let response = await fetch(`${URL_TRENDING}&${API_KEY}`);
+    let response = await fetch(`${URL_TRENDING}&${API_KEY}&limit=15`);
     let gifs = await response.json();
     let trendingGrid = document.querySelector('#trendingGrid');
     showGifs(gifs.data, trendingGrid, false);

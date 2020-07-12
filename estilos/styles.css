@@ -36,8 +36,6 @@ nav {
       line-height: 18px;
       text-align: center;
       padding: 2%; }
-      nav .side-menu .nav-boton a {
-        text-decoration: none; }
       nav .side-menu .nav-boton:hover {
         outline-style: dotted;
         outline-width: 1px;
@@ -79,7 +77,13 @@ nav {
     width: 100px;
     margin: 5px auto; }
   .dropdown-tema-content .active {
-    background: blue; }
+    box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff; }
+  .dropdown-tema-content .active-dark {
+    background: #2e32fb;
+    border: 1px solid rgba(51, 53, 143, 0.2); }
+  .dropdown-tema-content .active-ligth {
+    background: #fff4fd;
+    border: 1px solid #cca6c9; }
 
 .dropdown-tema-button {
   padding: 5px; }
@@ -118,10 +122,19 @@ form {
       justify-content: center;
       margin-left: 10px;
       height: 30px;
-      color: #b4b4b4;
-      background: #e6e6e6;
       border: 1px solid #808080;
       box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff; }
+    form .form-panel .active {
+      background-color: #f7c9f3;
+      color: black; }
+    form .form-panel .darkButton {
+      color: white;
+      background: #ee3efe;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff; }
+    form .form-panel .inactive {
+      color: #b4b4b4;
+      background: #e6e6e6; }
     form .form-panel img {
       padding-right: 5px; }
   form .form-titulo {
@@ -169,18 +182,26 @@ form {
     text-align: center;
     padding: 5px;
     margin-right: 40px; }
+  #searchHistory .darkSpan {
+    background: #2e32fb; }
 
 /** @format */
 .sugerencias {
   margin-top: 4%;
   grid-template-rows: repeat(1, 250px);
   overflow: hidden; }
-  .sugerencias p {
+  .sugerencias p,
+  .sugerencias h2 {
     width: 100%;
     height: 20px;
     background: #fffafe;
     border: 1px solid #e6bbe2;
-    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d; }
+    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 14px;
+    color: #110038;
+    font-weight: normal;
+    letter-spacing: 0; }
   .sugerencias .panel-grid {
     margin: 2% 40px;
     width: 100%;
@@ -200,6 +221,8 @@ form {
       color: #ffffff;
       letter-spacing: 0;
       background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%); }
+    .sugerencias .panel-grid .darkBar {
+      background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%); }
     .sugerencias .panel-grid span {
       background: #4180f6;
       border: 1px solid #4c2f99;
@@ -213,6 +236,8 @@ form {
       display: inline-block;
       transform: translateY(-150%);
       line-height: 18px; }
+    .sugerencias .panel-grid .darkSpan {
+      background: #2e32fb; }
     .sugerencias .panel-grid img {
       width: 200px;
       height: 200px; }
@@ -220,12 +245,18 @@ form {
 /** @format */
 .tendencias {
   margin-top: 4%; }
-  .tendencias p {
+  .tendencias p,
+  .tendencias h2 {
     width: 100%;
     height: 20px;
     background: #fffafe;
     border: 1px solid #e6bbe2;
-    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d; }
+    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 14px;
+    color: #110038;
+    font-weight: normal;
+    letter-spacing: 0; }
   .tendencias .panel-grid {
     margin: 2% 40px;
     width: 100%;
@@ -405,13 +436,32 @@ form {
 
 .panel-mis-gifos {
   margin-top: 4%;
+  height: 600px;
+  margin-top: 4%;
   display: none;
-  padding: 0 3% 0 3%; }
-  .panel-mis-gifos p {
-    padding: 4px;
+  padding: 0 3% 0 3%;
+  grid-template-rows: repeat(4, 200px); }
+  .panel-mis-gifos p,
+  .panel-mis-gifos h2 {
+    width: 100%;
+    height: 20px;
     background: #fffafe;
     border: 1px solid #e6bbe2;
-    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d; }
+    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 14px;
+    color: #110038;
+    font-weight: normal;
+    letter-spacing: 0; }
+  .panel-mis-gifos .panel-grid {
+    margin: 2% 40px;
+    width: 100%;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, 200px); }
+    .panel-mis-gifos .panel-grid img {
+      width: 100%;
+      height: 100%; }
 
 .show {
   display: block; }
@@ -435,12 +485,18 @@ form {
 .busqueda-show {
   display: block;
   margin-top: 4%; }
-  .busqueda-show p {
+  .busqueda-show p,
+  .busqueda-show h2 {
     width: 100%;
     height: 20px;
     background: #fffafe;
     border: 1px solid #e6bbe2;
-    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d; }
+    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 14px;
+    color: #110038;
+    font-weight: normal;
+    letter-spacing: 0; }
   .busqueda-show .panel-grid {
     margin: 2% 40px;
     width: 100%;

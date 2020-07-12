@@ -82,7 +82,7 @@ async function uploadGif() {
   try {
     let nameGif =
       prompt('Ingrese un nombre para el gif') + '.gif' || 'myGif.gif';
-    console.log(nameGif);
+
     let blob = await recorderGif.getBlob();
     let formData = new FormData();
     formData.append('file', blob, 'myGif.gif');
@@ -118,7 +118,7 @@ function saveToLocalStorage(id) {
 function updateProgress() {
   const progress = document.getElementById('progress');
   let value = 0;
-  console.log(2);
+
   if (videoPreview.currentTime > 0) {
     value = Math.floor(100 / videoPreview.duration * videoPreview.currentTime);
     videoCurrentTime.innerHTML = calculateTimeDuration(
@@ -128,7 +128,7 @@ function updateProgress() {
   progress.style.width = value + '%';
 }
 function showMyGifs(myGifs) {
-  let myGifGrid = document.querySelector('.grid-mis-gifos');
+  let myGifGrid = document.querySelector('#gridMyGif');
   myGifs.forEach(gif => {
     let original = gif.images.original;
     let img = document.createElement('img');
@@ -142,9 +142,13 @@ function showMyGifs(myGifs) {
 }
 async function getPersonalGif() {
   let idGif = JSON.parse(localStorage.getItem(GIFS_LOCAL));
-  let url1 = idGif.map(v => v + ',').join('');
-  let response = await fetch(`${URL_SEARCH_ID}&${API_KEY}&ids=${url1}`);
+  if (!idGif) {
+    return;
+  }
+  let url = idGif.map(v => v + ',').join('');
+  let response = await fetch(`${URL_SEARCH_ID}&${API_KEY}&ids=${url}`);
   let { data } = await response.json();
-  console.log(data);
-  showMyGifs(data);
+
+  let myGifGrid = document.querySelector('#gridMyGif');
+  showGifs(data, myGifGrid, false);
 }

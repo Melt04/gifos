@@ -26,6 +26,7 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
+
     .nav-boton {
       @include ligthButton;
       font-family: 'Chakra Petch', sans-serif;
@@ -36,15 +37,13 @@ nav {
       line-height: 18px;
       text-align: center;
       padding: 2%;
-      a {
-        text-decoration: none;
-      }
       &:hover {
         outline-style: dotted;
         outline-width: 1px;
         outline-offset: -5px;
       }
     }
+
     .darkButton {
       @include darkButton;
     }
@@ -84,8 +83,17 @@ nav {
     width: 100px;
     margin: 5px auto;
   }
+
   .active {
-    background: blue;
+    box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff;
+  }
+  .active-dark {
+    background: #2e32fb;
+    border: 1px solid rgba(51, 53, 143, 0.2);
+  }
+  .active-ligth {
+    background: #fff4fd;
+    border: 1px solid #cca6c9;
   }
 }
 .dropdown-tema-button {

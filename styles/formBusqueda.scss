@@ -15,7 +15,6 @@ form {
     justify-content: center;
     align-items: center;
     transform: translatey(40%);
-
     padding: 0 20px 0 20px;
     input[type='text'] {
       width: 90%;
@@ -31,12 +30,23 @@ form {
       justify-content: center;
       margin-left: 10px;
       height: 30px;
-      color: #b4b4b4;
-      background: #e6e6e6;
 
       border: 1px solid #808080;
       box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
     }
+
+    .active {
+      background-color: #f7c9f3;
+      color: black;
+    }
+    .darkButton {
+      @include darkButton;
+    }
+    .inactive {
+      color: #b4b4b4;
+      background: #e6e6e6;
+    }
+
     img {
       padding-right: 5px;
     }
@@ -90,5 +100,8 @@ form {
     text-align: center;
     padding: 5px;
     margin-right: 40px;
+  }
+  .darkSpan {
+    @include darkSpan;
   }
 }

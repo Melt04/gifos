@@ -1,5 +1,7 @@
 // Agregar los events para cambiar los theme
 
+let bCreateGifos = document.querySelector('#createGifos');
+
 // Event listener para los botones
 window.addEventListener('load', () => {
   let theme = localStorage.getItem('theme');
@@ -20,5 +22,12 @@ buttonSearch.addEventListener('click', () =>
 
 window.addEventListener('load', getSearchHistory);
 window.addEventListener('load', fetchTrendingGifs);
+window.addEventListener('load', saveThemeOnRefresh);
+
+bCreateGifos.addEventListener(
+  'click',
+  () => (window.location = './crearGif.html')
+);
+
 fetchRandomGifs();
 onSearch();

@@ -7,3 +7,4 @@ const URL_SEARCH_ID = 'https://api.giphy.com/v1/gifs?';
 const URL_RANDOM = 'https://api.giphy.com/v1/gifs/random?';
 const GIFS_LOCAL = 'misGifs';
 const SEARCH_HISTORY = 'historial';
+const THEME = 'THEME';

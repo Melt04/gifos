@@ -33,17 +33,16 @@ function onSearch() {
   if (inputSearch.value.length > 0) {
     searchHistory.style.display = 'none';
     buttonSearch.removeAttribute('disabled');
-    buttonSearch.style.background = '#f7c9f3';
-    buttonSearch.style.color = 'black';
+    buttonSearch.classList.replace('inactive', 'active');
     divAutocomplete.style.display = 'block';
     imgSearch.setAttribute('src', './assets/lupa.svg');
     fetchAutocomplete();
   } else {
     searchHistory.style.display = 'block';
     buttonSearch.setAttribute('disabled', '');
+    buttonSearch.classList.replace('active', 'inactive');
     imgSearch.setAttribute('src', './assets/lupa_inactive.svg');
-    buttonSearch.style.background = '#e6e6e6';
-    buttonSearch.style.color = '#b4b4b4';
+
     divAutocomplete.style.display = 'none';
   }
 }
@@ -56,6 +55,13 @@ function createWindowAspect(div, img, gif) {
   div.append(img);
   div.append(span);
   span.setAttribute('data-search', gif.slug);
+  span.classList.add('change');
+  p.classList.add('change');
+  let theme = localStorage.getItem(THEME);
+  if (theme) {
+    span.classList.add('darkSpan');
+    p.classList.add('darkBar');
+  }
   addOnClickSpan(span);
 }
 function showGifs(array, element, createWindow) {

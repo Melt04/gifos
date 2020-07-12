@@ -26,16 +26,18 @@
       <nav>
         <img src="./assets/gifOF_logo.png" alt="logo pricipal" id="mainLogo" />
         <div class="side-menu">
-          <button class="nav-boton change" id="createGifos">
-            <a href="./crearGif.html">Crear Gifos</a>
-          </button>
+          <button class="nav-boton change" id="createGifos">Crear Gifos</button>
+
           <div class="nav-tema">
             <div class="dropdown-tema">
               <button class="nav-boton change" id="themeButton">
                 Elegir Tema
               </button>
               <div class="dropdown-tema-content">
-                <button class="dropdown-tema-button" id="lightTheme">
+                <button
+                  class="dropdown-tema-button active active-ligth"
+                  id="lightTheme"
+                >
                   Sailor Day
                 </button>
                 <button class="dropdown-tema-button" id="darkTheme">
@@ -53,13 +55,21 @@
     </header>
 
     <section class="search">
-      <div class="form">
-        <form action="">
-          <p class="form-titulo change">Buscar</p>
+      <div class="form sear">
+        <form>
+          <h2 class="form-titulo change">Buscar</h2>
           <div class="form-panel">
-            <input type="text" name="" id="searchGif" />
-            <button class="form-boton" id="buttonSearch" disabled>
-              <img src="./assets/lupa_inactive.svg" id="imgSearch" />
+            <input type="text" id="searchGif" />
+            <button
+              class="form-boton change inactive"
+              id="buttonSearch"
+              disabled
+            >
+              <img
+                src="./assets/lupa_inactive.svg"
+                id="imgSearch"
+                alt="busqueda"
+              />
               <span>Buscar</span>
             </button>
           </div>
@@ -69,15 +79,15 @@
       </div>
     </section>
     <section class="sugerencias">
-      <p>Hoy te sugerimos</p>
+      <h2>Hoy te sugerimos</h2>
       <div class="panel-grid" id="suggestGrid"></div>
     </section>
     <section class="tendencias">
-      <p>Tendencias</p>
+      <h2>Tendencias</h2>
       <div class="panel-grid" id="trendingGrid"></div>
     </section>
     <section class="busqueda">
-      <p>Busqueda</p>
+      <h2>Busqueda</h2>
       <div class="panel-grid" id="searchGrid"></div>
     </section>
     <script src="./js/const.js"></script>

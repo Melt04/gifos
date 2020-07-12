@@ -1,6 +1,7 @@
 <!-- @format -->
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,7 +34,7 @@
       <p class="titulo">Crear gifos</p>
       <div class="crear-gifos-contenido">
         <div class="gifos-contenido-img">
-          <img src="./assets/window img.png" alt="" />
+          <img src="./assets/window_img.png" alt="" />
         </div>
         <div class="gifos-contenido-texto">
           <p>Aqui podes crear tus propios Gifos</p>
@@ -59,9 +60,9 @@
     <div class="panel-video-gifos">
       <div class="titulo">
         <p>Un chequeo antes de empezar</p>
-        <img id="imgClose" src="./assets/button close.svg" alt="" />
+        <img id="imgClose" src="./assets/button_close.svg" alt="" />
       </div>
-      <video src="" autoplay id="gifosVideo"></video>
+      <video autoplay id="gifosVideo"></video>
 
       <div class="panel-video-botones">
         <div class="panel-video-grabar show-flex">
@@ -77,7 +78,7 @@
 
     <div class="panel-video-preview">
       <p class="titulo">Vista previa</p>
-      <video src="" autoplay id="videoPreview"></video>
+      <video autoplay id="videoPreview"></video>
       <div class="panel-preview-botones">
         <p class="time-duration" id="videoTime"></p>
         <div class="video-control">
@@ -89,11 +90,12 @@
       </div>
     </div>
     <div class="panel-mis-gifos show">
-      <p>Mis gifos</p>
-      <div class="grid-mis-gifos"></div>
+      <h2>Mis Gifos</h2>
+      <div class="panel-grid" id="gridMyGif"></div>
     </div>
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <script src="./js/const.js"></script>
+    <script src="./js/index/domGifs.js"></script>
     <script src="./js/gifos/var.js"></script>
     <script src="./js/gifos/function.js"></script>
     <script src="./js/gifos/main.js"></script>
