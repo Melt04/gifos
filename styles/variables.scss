@@ -44,12 +44,13 @@
   }
   .panel-grid {
     margin: 2% 40px;
+
     width: 100%;
     display: grid;
     gap: 10px;
     grid-template-columns: repeat(auto-fit, 200px);
 
-    img {
+    .gridItem {
       width: 100%;
       height: 100%;
     }

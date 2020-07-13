@@ -1,6 +1,6 @@
 async function fetchRandomGifs() {
   let randomGifs = [];
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 10; i++) {
     randomGifs.push(fetch(`${URL_RANDOM}&${API_KEY}`));
   }
   try {
@@ -19,7 +19,7 @@ async function fetchRandomGifs() {
 }
 async function fetchTrendingGifs() {
   try {
-    let response = await fetch(`${URL_TRENDING}&${API_KEY}&limit=15`);
+    let response = await fetch(`${URL_TRENDING}&${API_KEY}&limit=10`);
     let gifs = await response.json();
     let trendingGrid = document.querySelector('#trendingGrid');
     showGifs(gifs.data, trendingGrid, false);
@@ -46,7 +46,7 @@ async function fetchSearchGifs(buscar, saveHistory) {
     panelSearch.classList.add('busqueda-show');
   }
   try {
-    let response = await fetch(`${URL_SEARCH}&${API_KEY}&q=${buscar}&limit=20`);
+    let response = await fetch(`${URL_SEARCH}&${API_KEY}&q=${buscar}&limit=10`);
     let data = await response.json();
 
     if (data.data.length < 1) {

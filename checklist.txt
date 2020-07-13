@@ -8,5 +8,3 @@
 [x] Condicion 8:
 [x] Condicion 9:
 [x] Condicion 10:
-
-Span background: #2E32FB;

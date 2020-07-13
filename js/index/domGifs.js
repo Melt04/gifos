@@ -48,13 +48,21 @@ function onSearch() {
 function createWindowAspect(div, img, gif) {
   let span = document.createElement('span');
   let p = document.createElement('p');
-  p.innerText = `#${gif.slug}`;
+  let divTitulo = document.createElement('div');
+  let imgInterno = document.createElement('img');
+  img.classList.add('sugeImg');
+  imgInterno.setAttribute('src', './assets/button_close.svg');
+  imgInterno.addEventListener('click', event => (div.style.display = 'none'));
+  p.innerText = `#${gif.title || gif.slug}`;
   span.innerText = 'Ver mas...';
-  div.append(p);
+  divTitulo.append(p);
+  divTitulo.classList.add('titulo');
+  divTitulo.classList.add('change');
+  divTitulo.append(imgInterno);
+  div.append(divTitulo);
   div.append(img);
   div.append(span);
-  span.setAttribute('data-search', gif.slug);
-
+  span.setAttribute('data-search', gif.title);
   p.classList.add('change');
   let theme = localStorage.getItem(THEME);
   if (theme) {
@@ -69,19 +77,20 @@ function showGifs(array, element, createWindow) {
     let original = gif.images.original;
     let div = document.createElement('div');
     let img = document.createElement('img');
+    img.classList.add('gridItem');
     img.setAttribute('src', original.url);
     if (createWindow) {
       createWindowAspect(div, img, gif);
     } else {
       div.append(img);
+      if (original.width > 500) {
+        div.style.gridColumn = 'span 2';
+      }
+      if (original.height > 450) {
+        div.style.gridRow = 'span 2';
+      }
     }
 
-    if (original.width > 500) {
-      div.style.gridColumn = 'span 2';
-    }
-    if (original.height > 300) {
-      div.style.gridRow = 'span 2';
-    }
     element.append(div);
   });
 }
