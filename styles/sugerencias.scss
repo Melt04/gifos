@@ -34,12 +34,28 @@
       transform: translateY(-150%);
       line-height: 18px;
     }
+    .div-titulo-ventana {
+      @include ligthBar;
+    }
     .darkSpan {
       @include darkSpan;
     }
     .sugeImg {
       width: 200px !important;
       height: 200px;
+    }
+  }
+}
+
+.dark {
+  .sugerencias {
+    .panel-grid {
+      p {
+        @include darkBar;
+      }
+      .div-titulo-ventana {
+        @include darkBar;
+      }
     }
   }
 }

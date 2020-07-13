@@ -119,7 +119,6 @@ function saveToLocalStorage(id) {
 function updateProgress() {
   const progress = document.getElementById('progress');
   let value = 0;
-
   if (videoPreview.currentTime > 0) {
     value = Math.floor(100 / videoPreview.duration * videoPreview.currentTime);
     videoCurrentTime.innerHTML = calculateTimeDuration(
@@ -136,8 +135,6 @@ function showMyGifs(myGifs) {
     img.setAttribute('src', original.url);
     img.setAttribute('width', original.width);
     img.setAttribute('height', original.height);
-    console.log(original.width, original.height);
-    console.log(gif.embed_url);
     myGifGrid.append(img);
   });
 }
@@ -150,6 +147,5 @@ async function getPersonalGif() {
   let response = await fetch(`${URL_SEARCH_ID}&${API_KEY}&ids=${url}`);
   let { data } = await response.json();
 
-  let myGifGrid = document.querySelector('#gridMyGif');
-  showGifs(data, myGifGrid, false);
+  showGifs(data, gridMyGif, false);
 }

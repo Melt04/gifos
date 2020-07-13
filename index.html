@@ -19,25 +19,22 @@
   </head>
   <body class="body">
     <header>
-      <div class="title-bar change">
+      <div class="title-bar">
         ¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número
         de visitas: 12.765.803
       </div>
       <nav>
         <img src="./assets/gifOF_logo.png" alt="logo pricipal" id="mainLogo" />
         <div class="side-menu">
-          <button class="nav-boton change" id="createGifos">Crear Gifos</button>
+          <button class="nav-boton" id="createGifos">Crear Gifos</button>
 
           <div class="nav-tema">
             <div class="dropdown-tema">
-              <button class="nav-boton change" id="themeButton">
+              <button class="nav-boton" id="themeButton">
                 Elegir Tema
               </button>
               <div class="dropdown-tema-content">
-                <button
-                  class="dropdown-tema-button active active-ligth"
-                  id="lightTheme"
-                >
+                <button class="dropdown-tema-button active" id="lightTheme">
                   Sailor Day
                 </button>
                 <button class="dropdown-tema-button" id="darkTheme">
@@ -45,26 +42,23 @@
                 </button>
               </div>
             </div>
-            <button class="arrow-button change" id="arrowButton">
+            <button class="arrow-button" id="arrowButton">
               <img id="arrowImage" src="./assets/dropdown.svg" alt="" />
             </button>
           </div>
-          <p id="gifosLabel"><span>M</span>is Gifos</p>
+          <p id="gifosLabel">
+            <a href="#gridMyGif"><span>M</span>is Gifos</a>
+          </p>
         </div>
       </nav>
     </header>
-
     <section class="search">
       <div class="form sear">
         <form>
-          <h2 class="form-titulo change">Buscar</h2>
+          <h2 class="form-titulo">Buscar</h2>
           <div class="form-panel">
             <input type="text" id="searchGif" />
-            <button
-              class="form-boton change inactive"
-              id="buttonSearch"
-              disabled
-            >
+            <button class="form-boton inactive" id="buttonSearch" disabled>
               <img
                 src="./assets/lupa_inactive.svg"
                 id="imgSearch"
@@ -86,7 +80,7 @@
       <h2>Tendencias</h2>
       <div class="panel-grid" id="trendingGrid"></div>
     </section>
-    <section class="busqueda">
+    <section class="busqueda" id="busqueda">
       <h2>Busqueda</h2>
       <div class="panel-grid" id="searchGrid"></div>
     </section>
@@ -99,6 +93,7 @@
     <script src="./js/index/changeTheams.js"></script>
     <script src="./js/index/fetchGifs.js"></script>
     <script src="./js/index/domGifs.js"></script>
+    <script src="./js/gifos/function.js"></script>
     <script src="./js/index/main.js"></script>
   </body>
 </html>

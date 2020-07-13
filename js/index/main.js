@@ -3,19 +3,10 @@
 let bCreateGifos = document.querySelector('#createGifos');
 
 // Event listener para los botones
-window.addEventListener('load', () => {
-  let theme = localStorage.getItem('theme');
-  if (theme) {
-    bDarkTheme.click();
-  } else {
-    bLightTheme.click();
-  }
-});
+
 bLightTheme.addEventListener('click', changeTheme);
 bDarkTheme.addEventListener('click', changeTheme);
-
 inputSearch.addEventListener('keyup', onSearch);
-
 buttonSearch.addEventListener('click', () =>
   fetchSearchGifs(inputSearch.value, true)
 );
@@ -23,6 +14,7 @@ buttonSearch.addEventListener('click', () =>
 window.addEventListener('load', getSearchHistory);
 window.addEventListener('load', fetchTrendingGifs);
 window.addEventListener('load', saveThemeOnRefresh);
+window.addEventListener('load', getPersonalGif);
 
 bCreateGifos.addEventListener(
   'click',

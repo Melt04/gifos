@@ -1,90 +1,46 @@
 let bLightTheme = document.querySelector('#lightTheme');
 let bDarkTheme = document.querySelector('#darkTheme');
 let imgMainLogo = document.querySelector('#mainLogo');
+let arrowImage = document.querySelector('#arrowImage');
 
 // Por defecto el theme empieza  en Light
 
-//bLightTheme.classList.add('active');
 function saveThemeOnRefresh() {
   let theme = localStorage.getItem(THEME);
+
   if (theme) {
     setDarkTheme();
   }
 }
 
 function setDarkTheme() {
-  let spans = document.querySelectorAll('span');
   let body = document.querySelector('body');
-  let changeElement = document.getElementsByClassName('change');
-  bDarkTheme.classList.add('active-dark');
-  bDarkTheme.classList.add('active');
-  bLightTheme.classList.remove('active');
-  bLightTheme.classList.remove('active-ligth');
-
-  let gifosLabel = document.querySelector('#gifosLabel');
-
-  gifosLabel.classList.add('dark-label');
-
-  body.classList.add('body-dark');
-  for (let i = 0; i < changeElement.length; i++) {
-    if (changeElement[i].nodeName == 'BUTTON') {
-      changeElement[i].classList.add('darkButton');
-    } else {
-      changeElement[i].classList.add('darkBar');
-    }
-  }
-  for (let i = 0; i < spans.length; i++) {
-    spans[i].classList.add('darkSpan');
-  }
+  body.classList.add('dark');
   arrowImage.setAttribute('src', './assets/dropdownDark.svg');
   imgMainLogo.setAttribute('src', './assets/gifOF_logo_dark.png');
+  bDarkTheme.classList.add('active');
+  bLightTheme.classList.remove('active');
+  localStorage.setItem(THEME, 'dark');
+  imgMainLogo = document.querySelector('#mainLogo');
 }
 
 function changeTheme() {
-  let spans = document.querySelectorAll('span');
   if (this.classList.contains('active')) {
     return;
-  } else {
-    bLightTheme.classList.remove('active');
-    bLightTheme.classList.remove('active-ligth');
-    bDarkTheme.classList.remove('active');
-    bDarkTheme.classList.remove('active-dark');
   }
-  this.classList.add('active');
-  if (this.id === 'lightTheme') {
-    this.classList.add('active-ligth');
-  } else {
-    this.classList.add('active-dark');
-  }
-  let changeTheme = document.getElementsByClassName('change');
-  for (let i = 0; i < changeTheme.length; i++) {
-    if (changeTheme[i].nodeName == 'BUTTON') {
-      changeTheme[i].classList.toggle('darkButton');
-    } else {
-      changeTheme[i].classList.toggle('darkBar');
-    }
-  }
-  for (let i = 0; i < spans.length; i++) {
-    spans[i].classList.toggle('darkSpan');
-  }
-
   let body = document.querySelector('body');
-  let gifosLabel = document.querySelector('#gifosLabel');
-  gifosLabel.classList.toggle('dark-label');
-  body.classList.toggle('body-dark');
-  let arrowAtributte = arrowImage.getAttribute('src');
-
-  //Cambiar entre las  dropdown ./assets/gifOF_logo.png
-  if (arrowAtributte === './assets/dropdown.svg') {
+  body.classList.toggle('dark');
+  if (body.classList.contains('dark')) {
     arrowImage.setAttribute('src', './assets/dropdownDark.svg');
     imgMainLogo.setAttribute('src', './assets/gifOF_logo_dark.png');
-  } else {
-    arrowImage.setAttribute('src', './assets/dropdown.svg');
-    imgMainLogo.setAttribute('src', './assets/gifOF_logo.png');
-  }
-  if (bDarkTheme.classList.contains('active')) {
+    bDarkTheme.classList.add('active');
+    bLightTheme.classList.remove('active');
     localStorage.setItem(THEME, 'dark');
   } else {
+    bLightTheme.classList.add('active');
+    bDarkTheme.classList.remove('active');
+    arrowImage.setAttribute('src', './assets/dropdown.svg');
+    imgMainLogo.setAttribute('src', './assets/gifOF_logo.png');
     localStorage.removeItem(THEME);
   }
 }

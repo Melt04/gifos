@@ -40,14 +40,16 @@ nav {
         outline-style: dotted;
         outline-width: 1px;
         outline-offset: -5px; }
-    nav .side-menu .darkButton {
-      color: white;
-      background: #ee3efe;
-      border: 1px solid #110038;
-      box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff; }
     nav .side-menu .nav-tema {
       display: flex;
       text-align: center; }
+  nav a {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 16px;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 18px;
+    text-decoration: none; }
 
 .arrow-button {
   background: #f7c9f3;
@@ -67,7 +69,16 @@ nav {
   width: 120px;
   position: absolute;
   flex-direction: column;
-  background-color: #e6e6e6; }
+  background-color: #e6e6e6;
+  /* 
+  .active-dark {
+    background: #2e32fb;
+    border: 1px solid rgba(51, 53, 143, 0.2);
+  }
+  .active-ligth {
+    background: #fff4fd;
+    border: 1px solid #cca6c9;
+  } */ }
   .dropdown-tema-content .dropdown-tema-button {
     font-family: 'Chakra Petch', sans-serif;
     font-size: 16px;
@@ -77,11 +88,7 @@ nav {
     width: 100px;
     margin: 5px auto; }
   .dropdown-tema-content .active {
-    box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff; }
-  .dropdown-tema-content .active-dark {
-    background: #2e32fb;
-    border: 1px solid rgba(51, 53, 143, 0.2); }
-  .dropdown-tema-content .active-ligth {
+    box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff;
     background: #fff4fd;
     border: 1px solid #cca6c9; }
 
@@ -96,6 +103,22 @@ nav {
   .dropdown-tema:hover .dropdown-tema-content .dropdown-tema-button {
     display: block; }
 
+.dark .dropdown-tema-content .active {
+  background: #2e32fb;
+  border: 1px solid rgba(51, 53, 143, 0.2); }
+.dark nav a {
+  color: #ffffff; }
+.dark nav .side-menu .nav-boton {
+  color: white;
+  background: #ee3efe;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff; }
+.dark nav .side-menu .arrow-button {
+  color: white;
+  background: #ee3efe;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff; }
+
 /** @format */
 form {
   background: #e6e6e6;
@@ -108,7 +131,10 @@ form {
     justify-content: center;
     align-items: center;
     transform: translatey(40%);
-    padding: 0 20px 0 20px; }
+    padding: 0 20px 0 20px;
+    /* .darkButton {
+      @include darkButton;
+    } */ }
     form .form-panel input[type='text'] {
       width: 90%;
       padding: 10px;
@@ -127,11 +153,6 @@ form {
     form .form-panel .active {
       background-color: #f7c9f3;
       color: black; }
-    form .form-panel .darkButton {
-      color: white;
-      background: #ee3efe;
-      border: 1px solid #110038;
-      box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff; }
     form .form-panel .inactive {
       color: #b4b4b4;
       background: #e6e6e6; }
@@ -185,6 +206,19 @@ form {
   #searchHistory .darkSpan {
     background: #2e32fb; }
 
+.dark form .form-panel .form-boton {
+  color: white;
+  background: #ee3efe;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff; }
+.dark form .form-panel .inactive {
+  color: #b4b4b4;
+  background: #e6e6e6; }
+.dark form .form-titulo {
+  background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%); }
+.dark #searchHistory span {
+  background: #2e32fb; }
+
 /** @format */
 .sugerencias {
   margin-top: 4%;
@@ -236,11 +270,18 @@ form {
       display: inline-block;
       transform: translateY(-150%);
       line-height: 18px; }
+    .sugerencias .panel-grid .div-titulo-ventana {
+      background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%); }
     .sugerencias .panel-grid .darkSpan {
       background: #2e32fb; }
     .sugerencias .panel-grid .sugeImg {
       width: 200px !important;
       height: 200px; }
+
+.dark .sugerencias .panel-grid p {
+  background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%); }
+.dark .sugerencias .panel-grid .div-titulo-ventana {
+  background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%); }
 
 /** @format */
 .tendencias {

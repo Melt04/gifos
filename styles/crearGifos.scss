@@ -10,16 +10,7 @@
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
 }
-@mixin background-panel-stop-ligth {
-  background: #ff6161;
-  border: 1px solid #110038;
-  box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
-}
-@mixin background-panel-stop-dark {
-  background: #ff6161;
-  border: 1px solid #110038;
-  box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
-}
+
 @mixin ligth {
   background: #f7c9f3;
   border: 1px solid #110038;
@@ -212,18 +203,13 @@
   display: block;
 }
 #progressBar {
-  //border: 1px solid #aaa;
-  //color: #fff;
   width: 295px;
   height: 20px;
-  //background-color: #999999;
 }
 #progress {
-  //background: #f7c9f3;
   height: 20px;
   display: inline-block;
 }
-
 .ligth {
   .panel-video-gifos {
     @include background-panel-ligth;

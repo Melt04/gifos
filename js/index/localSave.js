@@ -5,14 +5,10 @@ function saveSearchLocalStorate(value) {
 }
 function getSearchHistory() {
   searchHistory.innerHTML = '';
-  let searchItem = JSON.parse(localStorage.getItem(SEARCH_HISTORY));
+  let searchItem = JSON.parse(localStorage.getItem(SEARCH_HISTORY)) || [];
   searchItem.map(search => '#' + search).forEach(value => {
     let span = document.createElement('span');
     span.setAttribute('data-search', value.slice(1));
-    let theme = localStorage.getItem(THEME);
-    if (theme) {
-      span.classList.add('darkSpan');
-    }
     addOnClickSpan(span);
     span.innerText = value;
     searchHistory.append(span);

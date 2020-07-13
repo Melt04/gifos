@@ -55,20 +55,15 @@ function createWindowAspect(div, img, gif) {
   imgInterno.addEventListener('click', event => (div.style.display = 'none'));
   p.innerText = `#${gif.title || gif.slug}`;
   span.innerText = 'Ver mas...';
+  divTitulo.classList.add('div-titulo-ventana');
   divTitulo.append(p);
   divTitulo.classList.add('titulo');
-  divTitulo.classList.add('change');
   divTitulo.append(imgInterno);
   div.append(divTitulo);
   div.append(img);
   div.append(span);
   span.setAttribute('data-search', gif.title);
-  p.classList.add('change');
-  let theme = localStorage.getItem(THEME);
-  if (theme) {
-    span.classList.add('darkSpan');
-    p.classList.add('darkBar');
-  }
+
   addOnClickSpan(span);
 }
 function showGifs(array, element, createWindow) {

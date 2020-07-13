@@ -1,4 +1,5 @@
 async function fetchRandomGifs() {
+  console.log('2');
   let randomGifs = [];
   for (let i = 0; i < 10; i++) {
     randomGifs.push(fetch(`${URL_RANDOM}&${API_KEY}`));
@@ -6,6 +7,7 @@ async function fetchRandomGifs() {
   try {
     let results = await Promise.all(randomGifs);
     let randomGifsJson = [];
+
     results.forEach(response => {
       randomGifsJson.push(response.json());
     });
@@ -61,6 +63,7 @@ async function fetchSearchGifs(buscar, saveHistory) {
     showGifs(data.data, searchGrid);
     searchHistory.style.display = 'block';
     inputSearch.innerText = '';
+    window.location = '#busqueda';
   } catch (e) {
     console.log(e);
   }

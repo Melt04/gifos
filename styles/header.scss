@@ -44,14 +44,18 @@ nav {
       }
     }
 
-    .darkButton {
-      @include darkButton;
-    }
-
     .nav-tema {
       display: flex;
       text-align: center;
     }
+  }
+  a {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 16px;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 18px;
+    text-decoration: none;
   }
 }
 .arrow-button {
@@ -73,7 +77,6 @@ nav {
   position: absolute;
   flex-direction: column;
   background-color: #e6e6e6;
-
   .dropdown-tema-button {
     font-family: 'Chakra Petch', sans-serif;
     font-size: 16px;
@@ -86,7 +89,10 @@ nav {
 
   .active {
     box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff;
+    background: #fff4fd;
+    border: 1px solid #cca6c9;
   }
+  /* 
   .active-dark {
     background: #2e32fb;
     border: 1px solid rgba(51, 53, 143, 0.2);
@@ -94,7 +100,7 @@ nav {
   .active-ligth {
     background: #fff4fd;
     border: 1px solid #cca6c9;
-  }
+  } */
 }
 .dropdown-tema-button {
   padding: 5px;
@@ -108,6 +114,29 @@ nav {
       display: block;
       .dropdown-tema-button {
         display: block;
+      }
+    }
+  }
+}
+.ligth {
+}
+.dark {
+  .dropdown-tema-content {
+    .active {
+      background: #2e32fb;
+      border: 1px solid rgba(51, 53, 143, 0.2);
+    }
+  }
+  nav {
+    a {
+      color: #ffffff;
+    }
+    .side-menu {
+      .nav-boton {
+        @include darkButton;
+      }
+      .arrow-button {
+        @include darkButton;
       }
     }
   }
