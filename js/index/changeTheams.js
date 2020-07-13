@@ -4,23 +4,27 @@ let imgMainLogo = document.querySelector('#mainLogo');
 
 // Por defecto el theme empieza  en Light
 
-bLightTheme.classList.add('active');
+//bLightTheme.classList.add('active');
 function saveThemeOnRefresh() {
   let theme = localStorage.getItem(THEME);
   if (theme) {
     setDarkTheme();
   }
 }
+
 function setDarkTheme() {
   let spans = document.querySelectorAll('span');
+  let body = document.querySelector('body');
+  let changeElement = document.getElementsByClassName('change');
   bDarkTheme.classList.add('active-dark');
   bDarkTheme.classList.add('active');
   bLightTheme.classList.remove('active');
   bLightTheme.classList.remove('active-ligth');
-  let body = document.querySelector('body');
+
   let gifosLabel = document.querySelector('#gifosLabel');
-  let changeElement = document.getElementsByClassName('change');
+
   gifosLabel.classList.add('dark-label');
+
   body.classList.add('body-dark');
   for (let i = 0; i < changeElement.length; i++) {
     if (changeElement[i].nodeName == 'BUTTON') {

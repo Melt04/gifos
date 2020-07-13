@@ -1,10 +1,31 @@
 /** @format */
+
 @mixin background-panel-button {
   background: #f7c9f3;
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
-@mixin background-panel-stop {
+@mixin background-panel-button-dark {
+  background: #ee3efe;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+}
+@mixin background-panel-stop-ligth {
+  background: #ff6161;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+}
+@mixin background-panel-stop-dark {
+  background: #ff6161;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+}
+@mixin ligth {
+  background: #f7c9f3;
+  border: 1px solid #110038;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+@mixin dark {
   background: #ff6161;
   border: 1px solid #110038;
   box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
@@ -14,19 +35,27 @@
   background-color: #e6e6e6;
   height: 400px;
   margin: auto;
-  .titulo {
-    background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 14px;
-    color: #ffffff;
-    letter-spacing: 0;
-  }
 }
+@mixin background-panel-dark {
+  background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+}
+@mixin background-panel-ligth {
+  background-color: #e6e6e6;
+}
+@mixin titulo {
+  background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0;
+}
+
 .crear-gifos,
 .panel-video-gifos {
   display: none;
   @include background-panel;
   .titulo {
+    @include titulo;
     display: flex;
     justify-content: space-between;
   }
@@ -76,12 +105,6 @@
     }
   }
 }
-.panel-video-gifos {
-  display: none;
-}
-/* .show {
-  display: block;
-} */
 .panel-video-botones {
   #stopRecording {
     display: none;
@@ -96,24 +119,21 @@
 
   button {
     padding: 10px;
-    @include background-panel-button;
     width: 135px;
   }
   img {
-    @include background-panel-button;
     padding: 0 5px;
   }
 }
-
 .panel-video-listo {
   display: none;
   float: right;
   img {
-    @include background-panel-stop;
     padding: 0 5px;
+    @include dark;
   }
   button {
-    @include background-panel-stop;
+    @include dark;
     font-family: 'Chakra Petch', sans-serif;
     font-size: 16px;
     color: #ffffff;
@@ -124,21 +144,20 @@
     line-height: 18px;
   }
 }
-
 .show-flex {
   display: flex;
 }
-
 .panel-video-preview {
   display: none;
   @include background-panel;
-
+  .titulo {
+    @include titulo;
+  }
   .panel-preview-botones {
     margin-top: 4%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-
     .video-control {
       background: #f7c9f3;
       border: 1px solid #110038;
@@ -162,13 +181,10 @@
   button {
     font-family: 'Chakra Petch', sans-serif;
     font-size: 16px;
-    color: #110038;
     letter-spacing: 0;
     text-align: center;
     line-height: 18px;
     padding: 6px;
-    border: 1px solid #110038;
-    box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
   }
   #repeatGif {
     background: #fff4fd;
@@ -182,6 +198,7 @@
     height: 300px;
   }
 }
+
 .panel-mis-gifos {
   @include panelLayout;
   height: 600px;
@@ -195,14 +212,92 @@
   display: block;
 }
 #progressBar {
-  border: 1px solid #aaa;
-  color: #fff;
+  //border: 1px solid #aaa;
+  //color: #fff;
   width: 295px;
   height: 20px;
-  background-color: #999999;
+  //background-color: #999999;
 }
 #progress {
-  background: #f7c9f3;
+  //background: #f7c9f3;
   height: 20px;
   display: inline-block;
+}
+
+.ligth {
+  .panel-video-gifos {
+    @include background-panel-ligth;
+  }
+  .panel-video-grabar {
+    button {
+      @include background-panel-button;
+    }
+    img {
+      @include background-panel-button;
+    }
+  }
+
+  .panel-preview-botones {
+    button {
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+      color: #110038;
+    }
+  }
+  #progressBar {
+    border: 1px solid #aaa;
+    color: #fff;
+    background-color: #999999;
+  }
+  #progress {
+    background: #f7c9f3;
+  }
+}
+
+.dark {
+  background-color: #110038;
+  .title-bar {
+    background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+    box-shadow: 0 1px 0 0 #110038;
+  }
+  .crear-gifos,
+  .panel-video-gifos {
+    .titulo {
+      background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+    }
+  }
+
+  .panel-video-grabar {
+    button {
+      @include background-panel-button-dark;
+    }
+    img {
+      @include background-panel-button-dark;
+    }
+  }
+
+  .panel-video-preview {
+    .titulo {
+      background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+    }
+    .panel-preview-botones {
+      .video-control {
+        background: #ee3efe;
+      }
+      #repeatGif {
+        background: #110038;
+        color: #ffffff;
+        border: 1px solid #b4b4b4;
+        box-shadow: inset -1px -1px 0 0 #5c5c5c, inset 1px 1px 0 0 #fff4fd;
+      }
+    }
+  }
+
+  #progress {
+    background: #ee3efe;
+  }
+}
+
+.show {
+  display: block;
 }

@@ -28,3 +28,4 @@ buploadGif.addEventListener('click', uploadGif);
 videoPreview.addEventListener('timeupdate', updateProgress);
 videoControl.addEventListener('click', () => videoPreview.play());
 window.addEventListener('load', getPersonalGif);
+window.addEventListener('load', changeThemeBody);
