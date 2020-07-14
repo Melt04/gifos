@@ -26,10 +26,11 @@ bCopiarGif.addEventListener('click', event => {
   let id = event.target.getAttribute('data-id');
   copyLinkGif(id);
 });
-bFinGif.addEventListener('click', () => {
-  togglePanelVideo();
-  togglePanelExito();
-});
+bFinGif.addEventListener('click', () => {});
 
 imgCloseUpload.addEventListener('click', () => controller.abort());
 bdescargarGif.addEventListener('click', () => invokeSaveAsDialog(blob));
+imgCloseExit.addEventListener('click', () => {
+  togglePanelVideo();
+  togglePanelExito();
+});

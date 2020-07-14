@@ -542,11 +542,11 @@ form {
     margin-left: 70%;
     margin-top: 14%;
     background: #f7c9f3; }
-  .panel-subida-exito img {
-    width: 350px;
-    height: 180px; }
   .panel-subida-exito .panel-exito-botones {
     margin: auto; }
+    .panel-subida-exito .panel-exito-botones img {
+      width: 350px;
+      height: 180px; }
     .panel-subida-exito .panel-exito-botones p {
       font-weight: bold; }
     .panel-subida-exito .panel-exito-botones button {

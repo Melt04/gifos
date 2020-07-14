@@ -34,3 +34,4 @@ let panelSubidaExito = document.querySelector('.panel-subida-exito');
 let bFinGif = document.querySelector('#finGif');
 let imgCloseUpload = document.querySelector('#imgCloseUpload');
 let bdescargarGif = document.querySelector('#descargarGif');
+let imgCloseExit = document.querySelector('#imgCloseExit');
