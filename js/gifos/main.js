@@ -1,21 +1,7 @@
 // variables
 
 // Declaraion de funciones
-function calculateTimeDuration(secs) {
-  var hr = Math.floor(secs / 3600);
-  var min = Math.floor((secs - hr * 3600) / 60);
-  var sec = Math.floor(secs - hr * 3600 - min * 60);
-  if (min < 10) {
-    min = '0' + min;
-  }
-  if (sec < 10) {
-    sec = '0' + sec;
-  }
-  if (hr <= 0) {
-    return min + ':' + sec;
-  }
-  return hr + ':' + min + ':' + sec;
-}
+
 //Eventos
 
 bPrepRecording.addEventListener('click', prepareVideoRecording);
@@ -23,9 +9,27 @@ bStartRecording.addEventListener('click', startRecording);
 bStopRecording.addEventListener('click', stopRecord);
 bCancel.addEventListener('click', backToIndex);
 imgClose.addEventListener('click', closeButton);
-repeatVideo.addEventListener('click', togglePreview);
+repeatVideo.addEventListener('click', () => {
+  togglePreview();
+  togglePanelVideo();
+});
 buploadGif.addEventListener('click', uploadGif);
 videoPreview.addEventListener('timeupdate', updateProgress);
 videoControl.addEventListener('click', () => videoPreview.play());
 window.addEventListener('load', getPersonalGif);
 window.addEventListener('load', changeThemeBody);
+//signal.addEventListener('abort', () => console.log('aborted'));
+bCancelUpload.addEventListener('click', () => {
+  controller.abort();
+});
+bCopiarGif.addEventListener('click', event => {
+  let id = event.target.getAttribute('data-id');
+  copyLinkGif(id);
+});
+bFinGif.addEventListener('click', () => {
+  togglePanelVideo();
+  togglePanelExito();
+});
+
+imgCloseUpload.addEventListener('click', () => controller.abort());
+bdescargarGif.addEventListener('click', () => invokeSaveAsDialog(blob));

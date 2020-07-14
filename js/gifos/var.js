@@ -6,11 +6,14 @@ let recorderVideo = null;
 let recorderGif = null;
 let timeDuration = 0;
 let intervalID;
-
+let controller;
+let signal;
+let blob;
 // Elementos DOM
-
+let bCopiarGif = document.querySelector('#copiarGif');
 let bPrepRecording = document.querySelector('#prepRecording');
 let gifosVideo = document.querySelector('#gifosVideo');
+let uploadProgress = document.querySelector('.panel-cargando-subida');
 let panelVideoRecording = document.querySelector('.panel-video-grabar');
 let panelGifos = document.querySelector('.crear-gifos');
 let panelVideo = document.querySelector('.panel-video-gifos');
@@ -26,3 +29,8 @@ let buploadGif = document.querySelector('#uploadGif');
 let videoControl = document.querySelector('.video-control');
 let videoCurrentTime = document.querySelector('#videoTime');
 let myGifPanel = document.querySelector('.panel-mis-gifos');
+let bCancelUpload = document.querySelector('#cancelUpload');
+let panelSubidaExito = document.querySelector('.panel-subida-exito');
+let bFinGif = document.querySelector('#finGif');
+let imgCloseUpload = document.querySelector('#imgCloseUpload');
+let bdescargarGif = document.querySelector('#descargarGif');

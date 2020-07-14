@@ -309,6 +309,13 @@ form {
       height: 100%; }
 
 /** @format */
+.titulo {
+  background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0; }
+
 .crear-gifos,
 .panel-video-gifos {
   display: none;
@@ -318,11 +325,6 @@ form {
   margin: auto; }
   .crear-gifos .titulo,
   .panel-video-gifos .titulo {
-    background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 14px;
-    color: #ffffff;
-    letter-spacing: 0;
     display: flex;
     justify-content: space-between; }
   .crear-gifos .crear-gifos-contenido,
@@ -356,16 +358,19 @@ form {
     justify-content: flex-end; }
     .crear-gifos .gifos-panel-boton button,
     .panel-video-gifos .gifos-panel-boton button {
-      padding: 10px;
-      margin-left: 2%;
       font-family: 'Chakra Petch', sans-serif;
       font-size: 16px;
-      color: #110038;
       letter-spacing: 0;
       text-align: center;
-      line-height: 18px; }
+      line-height: 18px;
+      padding: 10px 40px;
+      padding: 10px;
+      margin-left: 2%;
+      color: #110038; }
     .crear-gifos .gifos-panel-boton #cancel,
-    .panel-video-gifos .gifos-panel-boton #cancel {
+    .crear-gifos .gifos-panel-boton #cancelUpload,
+    .panel-video-gifos .gifos-panel-boton #cancel,
+    .panel-video-gifos .gifos-panel-boton #cancelUpload {
       background: #fff4fd; }
     .crear-gifos .gifos-panel-boton #recording,
     .panel-video-gifos .gifos-panel-boton #recording {
@@ -400,12 +405,13 @@ form {
     box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
     font-family: 'Chakra Petch', sans-serif;
     font-size: 16px;
-    color: #ffffff;
-    width: 144px;
-    height: 36;
     letter-spacing: 0;
     text-align: center;
-    line-height: 18px; }
+    line-height: 18px;
+    padding: 10px 40px;
+    color: #ffffff;
+    width: 144px;
+    height: 36; }
 
 .show-flex {
   display: flex; }
@@ -416,12 +422,6 @@ form {
   background-color: #e6e6e6;
   height: 400px;
   margin: auto; }
-  .panel-video-preview .titulo {
-    background-image: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
-    font-family: 'Chakra Petch', sans-serif;
-    font-size: 14px;
-    color: #ffffff;
-    letter-spacing: 0; }
   .panel-video-preview .panel-preview-botones {
     margin-top: 4%;
     display: flex;
@@ -449,6 +449,7 @@ form {
     letter-spacing: 0;
     text-align: center;
     line-height: 18px;
+    padding: 10px 40px;
     padding: 6px; }
   .panel-video-preview #repeatGif {
     background: #fff4fd; }
@@ -487,8 +488,72 @@ form {
       width: 100%;
       height: 100%; }
 
-.show {
-  display: block; }
+.panel-cargando-subida {
+  display: none;
+  width: 700px;
+  background-color: #e6e6e6;
+  height: 400px;
+  margin: auto; }
+  .panel-cargando-subida .panel-carga-img {
+    background: white;
+    height: 75%;
+    width: 95%;
+    margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .panel-cargando-subida .panel-carga-img p {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      color: #110038;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: 22px; }
+  .panel-cargando-subida .panel-subida-botones {
+    text-align: right; }
+    .panel-cargando-subida .panel-subida-botones button {
+      font-family: 'Chakra Petch', sans-serif;
+      font-size: 16px;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: 18px;
+      padding: 10px 40px; }
+
+.panel-subida-exito {
+  width: 700px;
+  background-color: #e6e6e6;
+  height: 400px;
+  margin: auto;
+  display: none; }
+  .panel-subida-exito .panel-exito-datos {
+    display: flex;
+    height: 60%;
+    align-items: center;
+    padding: 4%; }
+  .panel-subida-exito button {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 18px;
+    padding: 10px 40px;
+    margin-left: 70%;
+    margin-top: 14%;
+    background: #f7c9f3; }
+  .panel-subida-exito img {
+    width: 350px;
+    height: 180px; }
+  .panel-subida-exito .panel-exito-botones {
+    margin: auto; }
+    .panel-subida-exito .panel-exito-botones p {
+      font-weight: bold; }
+    .panel-subida-exito .panel-exito-botones button {
+      background: #fff4fd;
+      display: flex;
+      flex-direction: column;
+      margin: 10px 0; }
 
 #progressBar {
   width: 295px;
@@ -521,12 +586,11 @@ form {
 
 .dark {
   background-color: #110038; }
+  .dark .titulo {
+    background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%); }
   .dark .title-bar {
     background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
     box-shadow: 0 1px 0 0 #110038; }
-  .dark .crear-gifos .titulo,
-  .dark .panel-video-gifos .titulo {
-    background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%); }
   .dark .panel-video-grabar button {
     background: #ee3efe;
     border: 1px solid #110038;
@@ -546,6 +610,9 @@ form {
     box-shadow: inset -1px -1px 0 0 #5c5c5c, inset 1px 1px 0 0 #fff4fd; }
   .dark #progress {
     background: #ee3efe; }
+
+.panel-cargando-subida {
+  text-align: right; }
 
 .show {
   display: block; }

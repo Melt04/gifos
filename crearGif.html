@@ -93,6 +93,40 @@
       <h2>Mis Gifos</h2>
       <div class="panel-grid" id="gridMyGif"></div>
     </div>
+    <div class="panel-cargando-subida">
+      <div class="titulo">
+        <p>Subiendo Gifo</p>
+        <img id="imgCloseUpload" src="./assets/button_close.svg" alt="" />
+      </div>
+      <div class="panel-carga-img">
+        <img src="./assets/globe_img.png" alt="carga de gifo" />
+        <p>Estamos subiendo tu guifo…</p>
+      </div>
+      <div class="panel-subida-botones">
+        <button id="cancelUpload">Cancelar Subida</button>
+      </div>
+    </div>
+    <div class="panel-subida-exito">
+      <div class="titulo">
+        <p>Guifo subido con exito</p>
+      </div>
+      <div class="panel-exito-datos">
+        <div class="panel-exito-img">
+          <img
+            src="https://media3.giphy.com/media/XBQQzibje2KHfRIfIt/giphy.gif?cid=dc877b2ae772737212971e34f38213998816ff4e81d3da88&rid=giphy.gif"
+            alt=""
+            id="imgExito"
+          />
+        </div>
+        <div class="panel-exito-botones">
+          <p>Guifo creado con exito</p>
+          <button id="copiarGif">Copiar Enlace Guifo</button>
+          <button id="descargarGif">Descargar Gifo</button>
+        </div>
+      </div>
+      <button id="finGif">Listo</button>
+    </div>
+
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <script src="./js/const.js"></script>
     <script src="./js/gifos/changeTheme.js"></script>

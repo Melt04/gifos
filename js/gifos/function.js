@@ -1,3 +1,18 @@
+function calculateTimeDuration(secs) {
+  var hr = Math.floor(secs / 3600);
+  var min = Math.floor((secs - hr * 3600) / 60);
+  var sec = Math.floor(secs - hr * 3600 - min * 60);
+  if (min < 10) {
+    min = '0' + min;
+  }
+  if (sec < 10) {
+    sec = '0' + sec;
+  }
+  if (hr <= 0) {
+    return min + ':' + sec;
+  }
+  return hr + ':' + min + ':' + sec;
+}
 function toggleVideo() {
   videoPreview.src = '';
   panelGifos.classList.toggle('show');
@@ -16,8 +31,10 @@ function toggleRecording() {
   }
 }
 function togglePreview() {
-  panelVideo.classList.toggle('show');
   panelVideoPreview.classList.toggle('show');
+}
+function togglePanelVideo() {
+  panelVideo.classList.toggle('show');
 }
 function backToIndex() {
   window.location = '/';
@@ -69,10 +86,13 @@ async function startRecording() {
   toggleRecording();
 }
 async function stopRecord() {
+  setTimeout(async () => {
+    await console.log(2);
+  }, 2000);
   toggleRecording();
+  togglePanelVideo();
   togglePreview();
   clearInterval(intervalID);
-  console.log(timeDuration);
   await recorderVideo.stopRecording();
   await recorderGif.stopRecording();
   let blob = await recorderVideo.getBlob();
@@ -82,33 +102,40 @@ async function uploadGif() {
   try {
     let nameGif =
       prompt('Ingrese un nombre para el gif') + '.gif' || 'myGif.gif';
-
-    let blob = await recorderGif.getBlob();
+    blob = await recorderGif.getBlob();
     let formData = new FormData();
-    formData.append('file', blob, 'myGif.gif');
+    formData.append('file', blob, nameGif);
+    controller = new AbortController();
+    signal = controller.signal;
+    togglePreview();
+    toggleUploadProgress();
     let response = await fetch(`${URL_UPLOAD}${API_KEY}`, {
       method: 'POST',
       body: formData,
+      signal,
     });
     let data = await response.json();
+    toggleUploadProgress();
     saveToLocalStorage(data.data.id);
     alert('Tu gifo se ha subido con exito 👍👍');
     videoPreview.src = '';
-    togglePreview();
+    let url = URL.createObjectURL(blob);
+    togglePanelExito(data.data.id, url);
     getPersonalGif();
   } catch (error) {
-    console.log(error);
+    alert('la subida se ha cancelado');
+    toggleUploadProgress();
+
+    togglePanelVideo();
   }
 }
-
 async function closeButton() {
   toggleVideo();
   if (recorderVideo) {
-    recorderVideo.stopRecording();
+    await recorderVideo.stopRecording();
     toggleRecording();
   }
 }
-
 function saveToLocalStorage(id) {
   let gifs = localStorage.getItem(GIFS_LOCAL);
   gifs = gifs === null ? [] : JSON.parse(gifs);
@@ -144,8 +171,34 @@ async function getPersonalGif() {
     return;
   }
   let url = idGif.map(v => v + ',').join('');
-  let response = await fetch(`${URL_SEARCH_ID}&${API_KEY}&ids=${url}`);
+  let response = await fetch(`${URL_SEARCH_IDS}&${API_KEY}&ids=${url}`);
   let { data } = await response.json();
-
   showGifs(data, gridMyGif, false);
+}
+function getGifById(id) {
+  return fetch(`${URL_SEARCH_ID}${id}?${API_KEY}`);
+}
+function toggleUploadProgress() {
+  uploadProgress.classList.toggle('show');
+}
+
+function abortController(controller) {
+  controller.abort();
+}
+function togglePanelExito(id, url = './') {
+  panelSubidaExito.classList.toggle('show');
+  let img = document.querySelector('#imgExito');
+  bCopiarGif.setAttribute('data-id', id);
+  img.setAttribute('src', url);
+}
+async function copyLinkGif(id) {
+  try {
+    console.log('hola');
+    let response = await getGifById(id);
+    let { data } = await response.json();
+    navigator.clipboard.writeText(data.url);
+    alert('Url copiada al clipboard');
+  } catch (e) {
+    console.log(e);
+  }
 }
